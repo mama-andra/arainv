@@ -1,11 +1,112 @@
-<!-- OPEN GRAPH META TAGS UNTUK WHATSAPP & MEDIA SOSIAL -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Wedding of Hj. Ara &amp; H. Iyad">
-<meta property="og:description" content="Sabtu, 26 Desember 2026 — Merupakan sebuah kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do’a restu.">
-<meta property="og:url" content="https://ara-iyad.my.id/">
-<meta property="og:image" content="https://ara-iyad.my.id/og-image.jpg">
-<meta property="og:image:secure_url" content="https://ara-iyad.my.id/og-image.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="ara-iyad.my.id">
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta Viewport Mobile-First: Memastikan tampilan layar penuh yang pas di semua ukuran HP -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <!-- ==========================================================================
+         1. JUDUL HALAMAN & DESKRIPSI STANDAR
+         Silakan ubah teks di bawah ini jika ingin mengganti judul di tab browser.
+         JANGAN gunakan tag HTML seperti <br> di dalam judul/deskripsi agar tidak bocor di WhatsApp.
+         ========================================================================== -->
+    <title>The Wedding Of Ara &amp; Iyad</title>
+    <meta name="description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+
+    <!-- ==========================================================================
+         2. OPEN GRAPH META TAGS (UNTUK PREVIEW GAMBAR BESAR DI WHATSAPP)
+         PENTING AGAR GAMBAR MUNCUL DI WHATSAPP:
+         - Siapkan 1 foto sampul/prewedding/cincin dengan nama file: thumbnail.jpg
+         - Upload file "thumbnail.jpg" tersebut ke dalam repository GitHub yang sama (sejajar dengan index.html).
+         - Ukuran file gambar WAJIB di bawah 300 KB (ideal: 80 KB - 200 KB) dengan resolusi sekitar 1200x630 px atau 800x800 px.
+         - Jika Anda menggunakan nama file lain atau link gambar eksternal, ganti URL pada bagian og:image dan twitter:image di bawah ini.
+         ========================================================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ara-iyad.my.id/">
+    <meta property="og:site_name" content="ara-iyad.my.id">
+    <meta property="og:title" content="The Wedding Of Ara &amp; Iyad">
+    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+
+    <!-- URL Gambar Thumbnail WhatsApp (Wajib menggunakan https:// lengkap) -->
+    <meta property="og:image" content="https://ara-iyad.my.id/thumbnail.jpg">
+    <meta property="og:image:secure_url" content="https://ara-iyad.my.id/thumbnail.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Wedding Of Ara &amp; Iyad">
+
+    <!-- ==========================================================================
+         3. TWITTER CARD META TAGS (MENDUKUNG TAMPILAN KARTU GAMBAR BESAR DI ATAS TEKS)
+         ========================================================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Wedding Of Ara &amp; Iyad">
+    <meta name="twitter:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+    <meta name="twitter:image" content="https://ara-iyad.my.id/thumbnail.jpg">
+
+    <!-- ==========================================================================
+         4. STYLING CSS FULL-SCREEN TANPA DOUBLE SCROLLBAR
+         ========================================================================== -->
+    <style>
+        /* Reset margin & padding agar tidak ada celah putih di tepi layar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #0b0f19;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Kontainer pembungkus iframe 100% layar perangkat */
+        .iframe-viewport-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            background-color: #0b0f19;
+        }
+
+        /* Iframe utama pemuat Google Apps Script Web App */
+        .gas-wedding-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ==========================================================================
+         5. IFRAME PEMBUNGKUS GOOGLE APPS SCRIPT WEB APP
+         Langsung memuat URL /exec Google Apps Script Anda dengan izin fitur penuh
+         (musik autoplay, salin teks/nomor rekening clipboard, dan layar penuh).
+         ========================================================================== -->
+    <div class="iframe-viewport-wrapper">
+        <iframe
+            class="gas-wedding-iframe"
+            src="https://script.google.com/macros/s/AKfycbzHs2aL-hITbiBdevNr1ZsceS_aFVny-v4fZhoJnbJhWGBTijolUbgZ_lam4diBkM-Eaw/exec"
+            title="The Wedding Of Ara &amp; Iyad"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen"
+            loading="eager"
+            allowfullscreen>
+        </iframe>
+    </div>
+</body>
+
+</html>
