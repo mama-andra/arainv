@@ -3,110 +3,3144 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- Meta Viewport Mobile-First: Memastikan tampilan layar penuh yang pas di semua ukuran HP -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
     <!-- ==========================================================================
          1. JUDUL HALAMAN & DESKRIPSI STANDAR
-         Silakan ubah teks di bawah ini jika ingin mengganti judul di tab browser.
-         JANGAN gunakan tag HTML seperti <br> di dalam judul/deskripsi agar tidak bocor di WhatsApp.
          ========================================================================== -->
     <title>The Wedding Of Hj. Ara &amp; H. Iyad</title>
-    <meta name="description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+    <meta name="description"
+        content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
 
     <!-- ==========================================================================
          2. OPEN GRAPH META TAGS (UNTUK PREVIEW GAMBAR BESAR DI WHATSAPP)
-         PENTING AGAR GAMBAR MUNCUL DI WHATSAPP:
-         - Siapkan 1 foto sampul/prewedding/cincin dengan nama file: thumbnail.jpg
-         - Upload file "thumbnail.jpg" tersebut ke dalam repository GitHub yang sama (sejajar dengan index.html).
-         - Ukuran file gambar WAJIB di bawah 300 KB (ideal: 80 KB - 200 KB) dengan resolusi sekitar 1200x630 px atau 800x800 px.
-         - Jika Anda menggunakan nama file lain atau link gambar eksternal, ganti URL pada bagian og:image dan twitter:image di bawah ini.
          ========================================================================== -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ara-iyad.my.id/">
     <meta property="og:site_name" content="ara-iyad.my.id">
     <meta property="og:title" content="The Wedding Of Hj. Ara &amp; H. Iyad">
-    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+    <meta property="og:description"
+        content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
 
-    <!-- URL Gambar Thumbnail WhatsApp (Wajib menggunakan https:// lengkap) -->
+    <!-- URL Gambar Thumbnail WhatsApp -->
     <meta property="og:image" content="https://ara-iyad.my.id/thumbnail.jpg">
     <meta property="og:image:secure_url" content="https://ara-iyad.my.id/thumbnail.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Wedding Of Ara &amp; Iyad">
+    <meta property="og:image:alt" content="The Wedding Of Hj. Ara &amp; H. Iyad">
 
     <!-- ==========================================================================
-         3. TWITTER CARD META TAGS (MENDUKUNG TAMPILAN KARTU GAMBAR BESAR DI ATAS TEKS)
+         3. TWITTER CARD META TAGS
          ========================================================================== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Wedding Of Ara &amp; Iyad">
-    <meta name="twitter:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
+    <meta name="twitter:title" content="The Wedding Of Hj. Ara &amp; H. Iyad">
+    <meta name="twitter:description"
+        content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
     <meta name="twitter:image" content="https://ara-iyad.my.id/thumbnail.jpg">
 
-    <!-- ==========================================================================
-         4. STYLING CSS FULL-SCREEN TANPA DOUBLE SCROLLBAR
-         ========================================================================== -->
+    <!-- TAILWIND CSS CDN UNTUK KELAS UTILITY DASAR -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- PRECONNECT GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- KOLEKSI GOOGLE FONTS STATIS (TERDEDUPLIKASI HANYA FONT TERPILIH) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
-        /* Reset margin & padding agar tidak ada celah putih di tepi layar */
+        /* ==========================================================================
+         * ZETTBOT PRODUCTION WEDDING INVITATION (index.html)
+         * Proyek     : Web App Undangan Pernikahan Digital Mobile-First (ARAINV)
+         * Arsitektur : Production 3 Berkas (setup.gs, code.gs, index.html)
+         * Mempelai   : Hj. Azra Mutia Toha (Ara) & H. Ahmad Iyad Muayyad (Iyad)
+         * Waktu Acara: Sabtu, 26 Desember 2026
+         * ========================================================================== */
+        :root {
+            --cream-base: #e3c9ab;
+            --cream-deep: #c7a987;
+            --maroon-ink: #681116;
+            --maroon-deep-verse: #420e13;
+            --maroon-soft: #7b181f;
+            --ivory-on-maroon: #fbf0df;
+            --cream-sub-on-maroon: #eedbc2;
+            --gold-accent-light: #e5c287;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html,
         body {
             width: 100%;
             height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #0b0f19;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Kontainer pembungkus iframe 100% layar perangkat */
-        .iframe-viewport-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 100vh;
             height: 100dvh;
             overflow: hidden;
-            background-color: #0b0f19;
+            background-color: #1c1410;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Iframe utama pemuat Google Apps Script Web App */
-        .gas-wedding-iframe {
+        .no-select {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .mobile-viewport-shell {
+            position: relative;
+            width: 100%;
+            height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #2d201a 0%, #120c09 100%);
+            overflow: hidden;
+        }
+
+        .mobile-scroll-container {
+            position: relative;
+            width: 100%;
+            max-width: 430px;
+            height: 100dvh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            background: linear-gradient(180deg, #ead3b8 0%, #d4b694 100%);
+            box-shadow: 0 0 65px rgba(0, 0, 0, 0.75);
+            scrollbar-width: none;
+        }
+
+        .mobile-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .invitation-slide {
+            position: relative;
+            width: 100%;
+            height: 100dvh;
+            min-height: 100dvh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Latar Tirai Krem Statis */
+        .layer-static-bg {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .layer-static-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
-            overflow: auto;
+        }
+
+        .ornament-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            filter: drop-shadow(0 14px 22px rgba(45, 18, 12, 0.28));
+        }
+
+        .sway-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-origin: 50% 50%;
+            will-change: transform;
+        }
+
+        /* Efek Ayunan Angin Ornamen Bunga & Amplop */
+        .sway-envelope {
+            animation: goyangAyunan 4.2s ease-in-out infinite;
+        }
+
+        .sway-flower-right {
+            animation: goyangAyunan 3.8s ease-in-out -1.2s infinite;
+        }
+
+        .sway-flower-left {
+            animation: goyangAyunan 4.6s ease-in-out -2.4s infinite;
+        }
+
+        .sway-p5-flower-bottom {
+            animation: goyangAyunan 4.1s ease-in-out -1.8s infinite;
+        }
+
+        @keyframes goyangAyunan {
+
+            0%,
+            100% {
+                transform: rotate(0deg) translate3d(0, 0, 0);
+            }
+
+            33% {
+                transform: rotate(-4.8deg) translate3d(-1.5px, -1.8px, 0);
+            }
+
+            66% {
+                transform: rotate(4.8deg) translate3d(1.5px, 1.2px, 0);
+            }
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 1 (COVER) — LOCKED TO "Great Vibes"
+         * ========================================================================== */
+        .layer-typography-invite {
+            position: absolute;
+            top: 15.6%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 25;
+            pointer-events: none;
+        }
+
+        .script-main-heading {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            font-size: clamp(3.1rem, 13.8vw, 3.85rem);
+            line-height: 1.05;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 8px rgba(255, 248, 238, 0.75), 0 2px 6px rgba(104, 17, 22, 0.15);
+            margin: 0;
+            padding: 0 12px;
+            white-space: nowrap;
+        }
+
+        .script-sub-heading {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            font-size: clamp(1.65rem, 7.2vw, 2.05rem);
+            line-height: 1.15;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 6px rgba(255, 248, 238, 0.7), 0 2px 4px rgba(104, 17, 22, 0.12);
+            margin-top: 0.2rem;
+            white-space: nowrap;
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 2 ("Hj. Ara & H. Iyad") — LOCKED TO "Allura"
+         * ========================================================================== */
+        .slide-safe-stage-p2 {
+            position: absolute;
+            top: 79%;
+            left: 50%;
+            width: min(91%, 51.2dvh);
+            aspect-ratio: 9 / 16;
+            transform: translate3d(-50%, -79%, 0);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .layer-typography-couple-p2 {
+            position: absolute;
+            top: 32%;
+            left: 21.0%;
+            width: 58.0%;
+            height: 23.0%;
+            z-index: 16;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .couple-name-stack {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .couple-name-line {
+            font-family: 'Allura', cursive;
+            font-weight: 400;
+            font-size: clamp(2.65rem, 11.5vw, 3.35rem);
+            line-height: 1.08;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 8px rgba(255, 248, 238, 0.75), 0 2px 5px rgba(104, 17, 22, 0.12);
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .couple-amp-line {
+            font-family: 'Allura', cursive;
+            font-weight: 400;
+            font-size: clamp(1.65rem, 7vw, 2.05rem);
+            line-height: 1.02;
+            margin: 0.15rem 0;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 6px rgba(255, 248, 238, 0.7), 0 2px 4px rgba(104, 17, 22, 0.12);
+        }
+
+        .sway-p2-couple-tilt {
+            animation: goyangAyunNamaP2 2.05s ease-in-out infinite;
+        }
+
+        @keyframes goyangAyunNamaP2 {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            33% {
+                transform: rotate(-3.4deg);
+            }
+
+            66% {
+                transform: rotate(3.4deg);
+            }
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 3 ("QS. Ar-Rum Ayat 21") — LOCKED TO "Libre Baskerville" + "Amiri"
+         * ========================================================================== */
+        .slide-safe-stage-p3 {
+            position: absolute;
+            top: 78%;
+            left: 50%;
+            width: min(97%, 54.6dvh);
+            aspect-ratio: 9 / 16;
+            transform: translate3d(-50%, -78%, 0);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .layer-typography-verse-p3 {
+            position: absolute;
+            top: 29.5%;
+            left: 26.0%;
+            width: 48.0%;
+            height: 38.5%;
+            container-type: inline-size;
+            z-index: 16;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .verse-content-stack {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p3-surah-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 5.6cqw;
+            font-weight: 700;
+            color: var(--maroon-deep-verse);
+            letter-spacing: 0.02em;
+            max-width: 86%;
+            margin: 0 auto 4.1cqw auto;
+        }
+
+        .p3-arabic-verse {
+            font-family: 'Amiri', serif !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+            color: #380b10;
+            width: 94%;
+            margin: 0 auto;
+            font-size: 7.4cqw;
+            line-height: 1.8;
+            direction: rtl;
+        }
+
+        .p3-gold-heart-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 3.1cqw auto 3.5cqw auto;
+        }
+
+        .p3-gold-heart-divider svg {
+            width: 58cqw;
+            height: auto;
+        }
+
+        .p3-translation-text {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 400;
+            font-size: 4.5cqw;
+            line-height: 1.48;
+            color: var(--maroon-deep-verse);
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 4 (PROFIL PENGANTIN) — LOCKED TO "Allura" & "Cormorant Garamond"
+         * ========================================================================== */
+        .slide-safe-stage-p4 {
+            position: absolute;
+            top: 54%;
+            left: 50%;
+            width: min(98%, 55.1dvh);
+            aspect-ratio: 9 / 16;
+            transform: translate3d(-50%, -54%, 0);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .layer-typography-couple-p4 {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            container-type: inline-size;
+            z-index: 17;
+            pointer-events: none;
+        }
+
+        .p4-typography-float-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .p4-top-opening {
+            position: absolute;
+            top: 24.2%;
+            left: 50%;
+            width: 60.0%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .p4-basmalah {
+            font-family: 'Amiri', serif !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 1px 4px rgba(24, 3, 5, 0.38);
+            font-size: 4.35cqw;
+            line-height: 1.36;
+            margin-bottom: 2.55cqw;
+            white-space: nowrap;
+            direction: rtl;
+        }
+
+        .p4-salam {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 2.96cqw;
+            margin-bottom: 0.9cqw;
+            line-height: 1.26;
+            white-space: nowrap;
+            color: var(--gold-accent-light);
+            text-shadow: 0 1px 3px rgba(24, 3, 5, 0.35);
+        }
+
+        .p4-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 2.82cqw;
+            line-height: 1.16;
+            color: var(--cream-sub-on-maroon);
+            text-shadow: 0 1px 3px rgba(24, 3, 5, 0.35);
+        }
+
+        .p4-nowrap-line {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .p4-bride-block {
+            position: absolute;
+            top: 39.2%;
+            left: 37.4%;
+            width: 38.6%;
+            text-align: left;
+        }
+
+        .p4-center-amp {
+            position: absolute;
+            top: 54.4%;
+            left: 43.0%;
+            width: 14.0%;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 5.6cqw;
+            color: var(--gold-accent-light);
+            text-shadow: 0 2px 5px rgba(24, 3, 5, 0.4);
+            line-height: 1;
+        }
+
+        .p4-groom-block {
+            position: absolute;
+            top: 59.8%;
+            left: 21.8%;
+            width: 39.0%;
+            text-align: right;
+        }
+
+        .p4-couple-name {
+            font-family: 'Allura', cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 6.05cqw;
+            line-height: 1.03;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 2px 6px rgba(20, 2, 4, 0.42);
+            transform-origin: 50% 50%;
+            will-change: transform;
+            animation: goyangNamaPengantinP4 2.05s ease-in-out infinite;
+        }
+
+        @keyframes goyangNamaPengantinP4 {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            33% {
+                transform: rotate(-3.1deg);
+            }
+
+            66% {
+                transform: rotate(3.1deg);
+            }
+        }
+
+        .p4-parent-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 2.82cqw;
+            line-height: 1.17;
+            margin-top: 1.05cqw;
+            color: var(--cream-sub-on-maroon);
+            text-shadow: 0 1px 3px rgba(20, 2, 4, 0.36);
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 5 (SAVE THE DATE) — LOCKED TO "Great Vibes" & "Playfair Display"
+         * ========================================================================== */
+        .slide-safe-stage-p5 {
+            position: absolute;
+            top: 54%;
+            left: 50%;
+            width: min(98%, 55.1dvh);
+            aspect-ratio: 9 / 16;
+            transform: translate3d(-50%, -54%, 0);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .layer-typography-date-p5 {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            container-type: inline-size;
+            z-index: 17;
+            pointer-events: none;
+        }
+
+        .p5-typography-float-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .p5-content-box {
+            position: absolute;
+            top: 31.2%;
+            left: 17.5%;
+            width: 65.0%;
+            height: 41.0%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .p5-save-title {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 8.0cqw;
+            line-height: 1.08;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 2px 6px rgba(20, 2, 4, 0.42);
+            white-space: nowrap;
+            margin-bottom: 3.8cqw;
+        }
+
+        .p5-date-day {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 6.1cqw;
+            line-height: 1.15;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 2px 7px rgba(20, 2, 4, 0.44);
+            white-space: nowrap;
+            margin-bottom: 3.8cqw;
+        }
+
+        .p5-date-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 15.8cqw;
+            line-height: 0.96;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 2px 7px rgba(20, 2, 4, 0.44);
+            display: inline-block;
+            margin-bottom: 4.4cqw;
+            letter-spacing: 0.02em;
+            transform-origin: center center;
+            will-change: transform;
+            animation: denyutTanggalPelan 1.75s ease-in-out infinite;
+        }
+
+        @keyframes denyutTanggalPelan {
+
+            0%,
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+
+            50% {
+                transform: scale3d(1.08, 1.08, 1);
+            }
+        }
+
+        .p5-date-month-year {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 5.7cqw;
+            line-height: 1.18;
+            letter-spacing: 0.01em;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 2px 7px rgba(20, 2, 4, 0.44);
+            white-space: nowrap;
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 6 (AKAD & RESEPSI) — LOCKED TO "Playfair Display Bold" & "Lora"
+         * ========================================================================== */
+        .slide-safe-stage-p6 {
+            position: absolute;
+            top: 54%;
+            left: 50%;
+            width: min(98%, 55.1dvh);
+            aspect-ratio: 9 / 16;
+            transform: translate3d(-50%, -54%, 0);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .layer-typography-event-p6 {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            container-type: inline-size;
+            z-index: 17;
+            pointer-events: none;
+        }
+
+        .p6-typography-float-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .p6-content-stack {
+            position: absolute;
+            top: 27.6%;
+            left: 15.0%;
+            width: 70.0%;
+            height: 51.0%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .p6-schedule-item {
+            width: 100%;
+        }
+
+        .p6-schedule-item-top {
+            margin-bottom: 2.35cqw;
+        }
+
+        .p6-schedule-item-second {
+            margin-bottom: 2.25cqw;
+        }
+
+        .p6-section-heading {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 4.05cqw;
+            line-height: 1.18;
+            color: var(--ivory-on-maroon);
+            text-shadow: 0 2px 6px rgba(20, 2, 4, 0.44);
+            white-space: nowrap;
+            margin-bottom: 0.55cqw;
+        }
+
+        .p6-time-text {
+            font-family: 'Lora', serif;
+            font-weight: 500;
+            font-size: 3.35cqw;
+            line-height: 1.22;
+            color: var(--cream-sub-on-maroon);
+            text-shadow: 0 1px 4px rgba(20, 2, 4, 0.38);
+        }
+
+        .p6-address-text {
+            font-family: 'Lora', serif;
+            font-weight: 400;
+            font-size: 2.52cqw;
+            line-height: 1.26;
+            color: var(--cream-sub-on-maroon);
+            text-shadow: 0 1px 4px rgba(20, 2, 4, 0.38);
+        }
+
+        .p6-nowrap-line {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .p6-venue-svg-wrap {
+            width: 78.5%;
+            max-width: 100%;
+            filter: drop-shadow(0 2px 5px rgba(20, 2, 4, 0.38));
+            margin-bottom: 2.25cqw;
+            transform-origin: 50% 50%;
+            will-change: transform;
+            animation: denyutBangunanP6 2.05s ease-in-out infinite;
+        }
+
+        @keyframes denyutBangunanP6 {
+
+            0%,
+            100% {
+                transform: scale3d(0.97, 0.97, 1);
+            }
+
+            50% {
+                transform: scale3d(1.075, 1.075, 1);
+            }
+        }
+
+        .p6-venue-svg-wrap svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .p6-location-block {
+            width: 100%;
+            margin-bottom: 2.35cqw;
+        }
+
+        .p6-maps-btn {
+            pointer-events: auto;
+            position: relative;
+            z-index: 32;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.4cqw;
+            padding: 1.35cqw 4.3cqw;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(229, 195, 140, 0.24) 0%, rgba(252, 241, 226, 0.12) 100%);
+            border: 1px solid rgba(229, 195, 140, 0.82);
+            color: var(--ivory-on-maroon);
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(20, 2, 4, 0.35), inset 0 1px 0 rgba(255, 248, 238, 0.22);
+            cursor: pointer;
+            font-family: 'Lora', serif;
+            font-size: 2.65cqw;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+            white-space: nowrap;
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .p6-maps-btn:hover,
+        .p6-maps-btn:active {
+            transform: scale(1.04);
+            background: linear-gradient(135deg, rgba(229, 195, 140, 0.36) 0%, rgba(252, 241, 226, 0.20) 100%);
+            box-shadow: 0 6px 16px rgba(20, 2, 4, 0.45);
+        }
+
+        .p6-maps-btn svg {
+            width: 3.1cqw;
+            height: 3.1cqw;
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+         * TIPOGRAFI HALAMAN 7 (PENUTUP) — LOCKED TO "Allura" & "Libre Baskerville"
+         * ========================================================================== */
+        .slide-safe-stage-p7 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: min(100%, 56.25dvh);
+            aspect-ratio: 9 / 16;
+            transform: translate3d(-50%, -50%, 0);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .layer-typography-closing-p7 {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            container-type: inline-size;
+            z-index: 22;
+            pointer-events: none;
+        }
+
+        .p7-typography-float-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .p7-top-closing {
+            position: absolute;
+            top: 7.4%;
+            left: 50%;
+            width: 86.0%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .p7-closing-para {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 400;
+            font-size: 2.92cqw;
+            line-height: 1.44;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 8px rgba(255, 248, 238, 0.72), 0 2px 5px rgba(72, 11, 16, 0.12);
+            margin-bottom: 3.5cqw;
+        }
+
+        .p7-closing-salam {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+            font-size: 2.86cqw;
+            line-height: 1.32;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 8px rgba(255, 248, 238, 0.72), 0 2px 5px rgba(72, 11, 16, 0.12);
+            white-space: nowrap;
+        }
+
+        .p7-happy-label {
+            font-family: 'Allura', cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 5.95cqw;
+            line-height: 1.08;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 8px rgba(255, 248, 238, 0.72), 0 2px 6px rgba(72, 11, 16, 0.14);
+            white-space: nowrap;
+            position: absolute;
+            top: 21.8%;
+            left: 14.5%;
+            text-align: left;
+            transform-origin: center center;
+            will-change: transform;
+            animation: denyutBahagiaP7 1.85s ease-in-out infinite;
+        }
+
+        @keyframes denyutBahagiaP7 {
+
+            0%,
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+
+            50% {
+                transform: scale3d(1.06, 1.06, 1);
+            }
+        }
+
+        .p7-couple-script {
+            font-family: 'Allura', cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 11.0cqw;
+            line-height: 1.02;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 10px rgba(255, 248, 238, 0.78), 0 2px 7px rgba(72, 11, 16, 0.16);
+            white-space: nowrap;
+        }
+
+        .p7-bride-pos {
+            position: absolute;
+            top: 38.6%;
+            left: 13.5%;
+            width: 32.0%;
+            text-align: center;
+            transform-origin: center center;
+            will-change: transform;
+            animation: goyangNamaAraP7 2.75s ease-in-out infinite;
+        }
+
+        @keyframes goyangNamaAraP7 {
+
+            0%,
+            100% {
+                transform: rotate(0deg) translate3d(0, 0, 0);
+            }
+
+            50% {
+                transform: rotate(-3.5deg) translate3d(-1px, -1px, 0);
+            }
+        }
+
+        .p7-center-amp {
+            position: absolute;
+            top: 31.4%;
+            left: 44.5%;
+            width: 12.0%;
+            text-align: center;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+            font-size: 6.9cqw;
+            color: var(--maroon-ink);
+            text-shadow: 0 1px 8px rgba(255, 248, 238, 0.72), 0 2px 6px rgba(72, 11, 16, 0.15);
+            line-height: 1;
+        }
+
+        .p7-groom-pos {
+            position: absolute;
+            top: 27.2%;
+            left: 62.2%;
+            width: 32.0%;
+            text-align: center;
+            transform-origin: center center;
+            will-change: transform;
+            animation: goyangNamaIyadP7 2.95s ease-in-out -1.35s infinite;
+        }
+
+        @keyframes goyangNamaIyadP7 {
+
+            0%,
+            100% {
+                transform: rotate(0deg) translate3d(0, 0, 0);
+            }
+
+            50% {
+                transform: rotate(3.5deg) translate3d(1px, 1px, 0);
+            }
+        }
+
+        /* ==========================================================================
+         * POSISI ORNAMEN TIAP HALAMAN (1 S/D 7)
+         * ========================================================================== */
+        /* Halaman 1 */
+        .ornament-envelope-pos {
+            position: absolute;
+            left: 12.8%;
+            top: 42.8%;
+            width: 74.8%;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .ornament-flower-right-pos {
+            position: absolute;
+            right: 10.8%;
+            top: 39.2%;
+            width: 22.2%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ornament-flower-left-pos {
+            position: absolute;
+            left: 11.4%;
+            top: 58.8%;
+            width: 20.2%;
+            z-index: 21;
+            pointer-events: none;
+        }
+
+        /* Halaman 2 */
+        .ornament-p2-envelope-pos {
+            position: absolute;
+            left: 6.8%;
+            top: 16.2%;
+            width: 87.2%;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        .ornament-p2-seal-pos {
+            position: absolute;
+            left: 40.0%;
+            top: 57.2%;
+            width: 21.4%;
+            z-index: 18;
+            pointer-events: none;
+        }
+
+        .ornament-p2-flower-left-pos {
+            position: absolute;
+            left: 2.3%;
+            top: 51.2%;
+            width: 23.2%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ornament-p2-flower-right-pos {
+            position: absolute;
+            right: 4.8%;
+            top: 67.6%;
+            width: 24.8%;
+            z-index: 21;
+            pointer-events: none;
+        }
+
+        /* Halaman 3 */
+        .ornament-p3-frame-pos {
+            position: absolute;
+            left: 9.5%;
+            top: 13.0%;
+            width: 84.0%;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        .ornament-p3-flower-top-pos {
+            position: absolute;
+            right: 14.5%;
+            top: 11.8%;
+            width: 27.5%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ornament-p3-flower-bottom-pos {
+            position: absolute;
+            left: 36.5%;
+            top: 74.2%;
+            width: 26.5%;
+            z-index: 21;
+            pointer-events: none;
+        }
+
+        /* Halaman 4 */
+        .ornament-p4-frame-pos {
+            position: absolute;
+            left: 7.2%;
+            top: 11.8%;
+            width: 85.6%;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        .ornament-p4-wanita-pos {
+            position: absolute;
+            left: 17.0%;
+            top: 36.8%;
+            width: 23.8%;
+            z-index: 14;
+            pointer-events: none;
+        }
+
+        .ornament-p4-pria-pos {
+            position: absolute;
+            right: 18.0%;
+            top: 56.5%;
+            width: 24.2%;
+            z-index: 14;
+            pointer-events: none;
+        }
+
+        .ornament-p4-flower-top-pos {
+            position: absolute;
+            right: 10.8%;
+            top: 11.0%;
+            width: 24.8%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ornament-p4-flower-bottom-pos {
+            position: absolute;
+            left: 9.8%;
+            top: 73.0%;
+            width: 25.4%;
+            z-index: 21;
+            pointer-events: none;
+        }
+
+        /* Halaman 5 */
+        .ornament-p5-frame-pos {
+            position: absolute;
+            left: 7.2%;
+            top: 11.8%;
+            width: 85.6%;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        .ornament-p5-flower-top-pos {
+            position: absolute;
+            left: 37.8%;
+            top: 11.2%;
+            width: 24.4%;
+            transform: translateX(-50%);
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ornament-p5-flower-bottom-pos {
+            position: absolute;
+            left: 37.8%;
+            top: 73.2%;
+            width: 24.4%;
+            transform: translateX(-50%);
+            z-index: 21;
+            pointer-events: none;
+        }
+
+        /* Halaman 6 */
+        .ornament-p6-frame-pos {
+            position: absolute;
+            left: 7.2%;
+            top: 11.8%;
+            width: 85.6%;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        .ornament-p6-flower-left-pos {
+            position: absolute;
+            left: 10.5%;
+            top: 11.2%;
+            width: 24.4%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .ornament-p6-flower-right-pos {
+            position: absolute;
+            right: 11.5%;
+            top: 48.5%;
+            width: 23.5%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        /* Halaman 7 */
+        .ornament-p7-couple-pos {
+            position: absolute;
+            left: 5.5%;
+            top: 25.5%;
+            width: 89.0%;
+            height: 72.0%;
+            z-index: 16;
+            pointer-events: none;
+        }
+
+        .ornament-p7-couple-pos .ornament-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center bottom;
+            filter: drop-shadow(0 16px 28px rgba(45, 18, 12, 0.32));
+        }
+
+        .couple-static-p7 .ornament-img {
+            transform: none !important;
+        }
+
+        /* Mode Kanvas Penuh jika gambar 100% proporsional */
+        .mode-full-canvas {
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: auto !important;
+            bottom: auto !important;
+        }
+
+        .mode-full-canvas .ornament-img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+        }
+
+        .mode-full-canvas .p2-canvas-shift-wrap,
+        .mode-full-canvas .p3-canvas-shift-wrap,
+        .mode-full-canvas .p4-canvas-shift-wrap,
+        .mode-full-canvas .p5-canvas-shift-wrap,
+        .mode-full-canvas .p6-canvas-shift-wrap,
+        .mode-full-canvas .sway-wrapper {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .slide-safe-stage-p2 .mode-full-canvas .p2-canvas-shift-wrap,
+        .slide-safe-stage-p2 .mode-full-canvas .sway-wrapper,
+        .slide-safe-stage-p2 .mode-full-canvas .ornament-img,
+        .slide-safe-stage-p3 .mode-full-canvas .p3-canvas-shift-wrap,
+        .slide-safe-stage-p3 .mode-full-canvas .sway-wrapper,
+        .slide-safe-stage-p3 .mode-full-canvas .ornament-img,
+        .slide-safe-stage-p4 .mode-full-canvas .p4-canvas-shift-wrap,
+        .slide-safe-stage-p4 .mode-full-canvas .sway-wrapper,
+        .slide-safe-stage-p4 .mode-full-canvas .ornament-img,
+        .slide-safe-stage-p5 .mode-full-canvas .p5-canvas-shift-wrap,
+        .slide-safe-stage-p5 .mode-full-canvas .sway-wrapper,
+        .slide-safe-stage-p5 .mode-full-canvas .ornament-img,
+        .slide-safe-stage-p6 .mode-full-canvas .p6-canvas-shift-wrap,
+        .slide-safe-stage-p6 .mode-full-canvas .sway-wrapper,
+        .slide-safe-stage-p6 .mode-full-canvas .ornament-img {
+            object-fit: contain;
+        }
+
+        /* Kompensasi Posisi Bunga Halaman 1 -> Halaman 2 apabila PNG bertipe Full-Canvas */
+        .mode-full-canvas .p2-canvas-shift-left {
+            transform: translate3d(-9.1%, -7.6%, 0);
+        }
+
+        .mode-full-canvas .p2-canvas-shift-right {
+            transform: translate3d(6.0%, 28.4%, 0);
+        }
+
+        /* Kompensasi Posisi Bunga Halaman 1 -> Halaman 3 apabila PNG bertipe Full-Canvas */
+        .mode-full-canvas .p3-canvas-shift-top {
+            transform: translate3d(-4.5%, -25.8%, 0);
+        }
+
+        .mode-full-canvas .p3-canvas-shift-bottom {
+            transform: translate3d(27.5%, 13.8%, 0);
+        }
+
+        /* Kompensasi Posisi Bunga Halaman 1 -> Halaman 4 apabila PNG bertipe Full-Canvas */
+        .mode-full-canvas .p4-canvas-shift-top {
+            transform: translate3d(63.8%, -28.0%, 0);
+        }
+
+        .mode-full-canvas .p4-canvas-shift-bottom {
+            transform: translate3d(-45.6%, 37.6%, 0);
+        }
+
+        /* Kompensasi Posisi Bunga Kanan Halaman 1 -> Tengah-Atas & Tengah-Bawah Halaman 5 */
+        .mode-full-canvas .p5-canvas-shift-top {
+            transform: translate3d(-27.4%, -25.4%, 0);
+        }
+
+        .mode-full-canvas .p5-canvas-shift-bottom {
+            transform: translate3d(-27.4%, 40.5%, 0);
+        }
+
+        /* Kompensasi Posisi Bunga Kanan Halaman 1 -> Kiri-Atas & Kanan-Tengah Halaman 6 */
+        .mode-full-canvas .p6-canvas-shift-left {
+            transform: translate3d(-64.2%, -11.8%, 0);
+        }
+
+        .mode-full-canvas .p6-canvas-shift-right {
+            transform: translate3d(10.2%, 1.6%, 0);
+        }
+
+        /* Zona Sentuh & Interaksi Amplop */
+        .envelope-touch-zone {
+            position: absolute;
+            left: 13%;
+            top: 42%;
+            width: 74%;
+            height: 38%;
+            z-index: 30;
+            cursor: pointer;
+            border-radius: 20px;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .is-envelope-tapped {
+            animation: ketukDenyutAmplop 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes ketukDenyutAmplop {
+            0% {
+                transform: scale(1);
+            }
+
+            35% {
+                transform: scale(0.94);
+            }
+
+            70% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .scroll-hint-pill {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 35;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(88, 16, 22, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fdf6ee;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 14px rgba(55, 12, 16, 0.22);
+            cursor: pointer;
+            border: 1px solid rgba(255, 238, 224, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .preloader-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 60;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #f2dfc8 0%, #d8ba98 100%);
+            transition: opacity 0.55s ease, visibility 0.55s ease;
+        }
+
+        .preloader-overlay.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .preloader-spinner {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 2.5px solid rgba(104, 17, 22, 0.18);
+            border-top-color: var(--maroon-ink);
+            animation: putarLoader 0.85s linear infinite;
+        }
+
+        @keyframes putarLoader {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .custom-invitation-toast {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translate3d(-50%, -24px, 0);
+            z-index: 110;
+            width: calc(100% - 36px);
+            max-width: 370px;
+            padding: 11px 14px;
+            border-radius: 14px;
+            background: rgba(74, 12, 17, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(247, 217, 202, 0.35);
+            box-shadow: 0 12px 28px rgba(32, 6, 8, 0.35);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .custom-invitation-toast.is-active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate3d(-50%, 0, 0);
         }
     </style>
 </head>
 
 <body>
+    <main class="mobile-viewport-shell">
+
+        <!-- AUDIO MUSIK LATAR UNDANGAN (TANPA TOMBOL UI) -->
+        <audio id="audioLatarUndangan" src="lagu.mp3" preload="auto" loop playsinline aria-hidden="true"></audio>
+
+        <!-- TOAST NOTIFIKASI -->
+        <div id="customInvitationToast" class="custom-invitation-toast no-select" role="status" aria-live="polite">
+            <div
+                class="w-8 h-8 rounded-full bg-[#681116] border border-[#f5d5c6]/40 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-[#fce8df]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                        d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                </svg>
+            </div>
+            <div id="customToastBody" class="text-xs leading-relaxed text-[#fdf2ec]"></div>
+        </div>
+
+        <!-- KONTAINER SCROLL / SLIDE UNDANGAN TAMU -->
+        <div id="mainScrollStage" class="mobile-scroll-container no-select">
+
+            <!-- ==============================================================
+                 SLIDE 1: HALAMAN COVER UNDANGAN ("You're Invited to Our Wedding")
+                 ============================================================== -->
+            <section id="slideHalaman1" class="invitation-slide" data-slide-index="1"
+                aria-label="Halaman Pembuka Undangan">
+
+                <div id="preloaderHalaman1" class="preloader-overlay">
+                    <div class="preloader-spinner"></div>
+                    <p class="mt-3 text-xs font-medium tracking-wider text-[#681116]/85">Memuat Aset Undangan...</p>
+                </div>
+
+                <!-- 1. BACKGROUND TIRAI & BUNGA DASAR (100% STATIS / DIAM) -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman1" alt="Latar Undangan Pernikahan" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- 2. TIPOGRAFI SAMBUTAN (GREAT VIBES) -->
+                <div id="blokTipografiJudul" class="layer-typography-invite">
+                    <div class="sway-wrapper">
+                        <h1 id="teksUtamaSambutan" class="script-main-heading">You’re Invited</h1>
+                        <p id="teksSubSambutan" class="script-sub-heading">to Our Wedding</p>
+                    </div>
+                </div>
+
+                <!-- 3. ORNAMEN AMPLOP BURGUNDY TERTUTUP -->
+                <div id="wrapAmplop" class="ornament-envelope-pos">
+                    <div class="sway-wrapper sway-envelope">
+                        <img id="imgAmplopHalaman1" class="ornament-img" alt="Amplop Undangan"
+                            referrerpolicy="no-referrer" />
+                    </div>
+                </div>
+
+                <!-- 4. ORNAMEN BUNGA KANAN ATAS -->
+                <div id="wrapBungaKanan" class="ornament-flower-right-pos">
+                    <div class="sway-wrapper sway-flower-right">
+                        <img id="imgBungaKananHalaman1" class="ornament-img" alt="Ornamen Bunga Kanan"
+                            referrerpolicy="no-referrer" />
+                    </div>
+                </div>
+
+                <!-- 5. ORNAMEN BUNGA KIRI BAWAH -->
+                <div id="wrapBungaKiri" class="ornament-flower-left-pos">
+                    <div class="sway-wrapper sway-flower-left">
+                        <img id="imgBungaKiriHalaman1" class="ornament-img" alt="Ornamen Bunga Kiri"
+                            referrerpolicy="no-referrer" />
+                    </div>
+                </div>
+
+                <!-- ZONA KLIK AMPLOP -->
+                <button id="amplopInteraktif" type="button" class="envelope-touch-zone"
+                    aria-label="Sentuh amplop untuk membuka undangan"></button>
+
+                <!-- INDIKATOR SCROLL KE HALAMAN 2 -->
+                <button id="btnScrollUji" type="button" class="scroll-hint-pill">
+                    <span>Sentuh Amplop / Geser ke Bawah</span>
+                    <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </section>
+
+            <!-- ==============================================================
+                 SLIDE 2: HALAMAN 2 ("Ara & Iyad" DALAM FRAME RENDA & AMPLOP)
+                 ============================================================== -->
+            <section id="slideHalaman2" class="invitation-slide" data-slide-index="2"
+                aria-label="Halaman Nama Kedua Pengantin Ara dan Iyad">
+
+                <!-- 1. BACKGROUND -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman2" alt="Latar Halaman Kedua" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- KANVAS PROPORSIONAL 9:16 -->
+                <div class="slide-safe-stage-p2">
+
+                    <!-- 2. AMPLOP TERBUKA & KARTU FRAME RENDA PUTIH (IDLE DIAM / STATIS) -->
+                    <div id="wrapAmplopP2" class="ornament-p2-envelope-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgAmplopHalaman2" class="ornament-img" alt="Amplop dan Frame Renda"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 3. TIPOGRAFI NAMA PENGANTIN "Hj. Ara & H. Iyad" (ALLURA — AYUN POROS TENGAH) -->
+                    <div id="blokTipografiP2" class="layer-typography-couple-p2">
+                        <div class="sway-wrapper sway-p2-couple-tilt">
+                            <div class="couple-name-stack">
+                                <h2 class="couple-name-line">Hj. Ara</h2>
+                                <span class="couple-amp-line">&amp;</span>
+                                <h2 class="couple-name-line">H. Iyad</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. SEGEL AMPLOP (WAX SEAL FLORAL — IDLE DIAM / STATIS) -->
+                    <div id="wrapSegelP2" class="ornament-p2-seal-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgSegelHalaman2" class="ornament-img" alt="Segel Amplop Pernikahan"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 5. BUNGA KIRI -->
+                    <div id="wrapBungaKiriP2" class="ornament-p2-flower-left-pos">
+                        <div class="p2-canvas-shift-wrap p2-canvas-shift-left">
+                            <div class="sway-wrapper sway-flower-left">
+                                <img id="imgBungaKiriHalaman2" class="ornament-img" alt="Ornamen Bunga Kiri Halaman 2"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. BUNGA KANAN -->
+                    <div id="wrapBungaKananP2" class="ornament-p2-flower-right-pos">
+                        <div class="p2-canvas-shift-wrap p2-canvas-shift-right">
+                            <div class="sway-wrapper sway-flower-right">
+                                <img id="imgBungaKananHalaman2" class="ornament-img" alt="Ornamen Bunga Kanan Halaman 2"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================================================
+                 SLIDE 3: HALAMAN 3 ("QS. Ar-Rum Ayat 21" DALAM FRAME OVAL BURGUNDY)
+                 ============================================================== -->
+            <section id="slideHalaman3" class="invitation-slide" data-slide-index="3"
+                aria-label="Halaman Kutipan Ayat Suci QS Ar-Rum Ayat 21">
+
+                <!-- 1. BACKGROUND -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman3" alt="Latar Halaman Ketiga" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- KANVAS PROPORSIONAL 9:16 -->
+                <div class="slide-safe-stage-p3">
+
+                    <!-- 2. FRAME OVAL BERGELOMBANG BURGUNDY (IDLE DIAM / STATIS) -->
+                    <div id="wrapFrameP3" class="ornament-p3-frame-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgFrameHalaman3" class="ornament-img" alt="Frame Oval Halaman 3"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 3. TIPOGRAFI AYAT SUCI (LIBRE BASKERVILLE + AMIRI) -->
+                    <div id="blokTipografiP3" class="layer-typography-verse-p3">
+                        <div class="sway-wrapper">
+                            <div class="verse-content-stack">
+                                <h2 class="p3-surah-title">QS. Ar-Rum Ayat 21</h2>
+
+                                <p class="p3-arabic-verse" dir="rtl" lang="ar">
+                                    وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا
+                                    اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ
+                                    لِّقَوْمٍ يَّتَفَكَّرُوْنَ
+                                </p>
+
+                                <!-- Ornamen Garis Emas & Hati Kecil -->
+                                <div class="p3-gold-heart-divider" aria-hidden="true">
+                                    <svg width="124" height="14" viewBox="0 0 124 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 7H47" stroke="#C59B5F" stroke-width="0.9" stroke-linecap="round"
+                                            stroke-opacity="0.78" />
+                                        <path d="M35 7C39 4.5 44 4.5 49 7C44 9.5 39 9.5 35 7Z" stroke="#C59B5F"
+                                            stroke-width="0.75" stroke-opacity="0.75" />
+                                        <path
+                                            d="M62 11.2C62 11.2 56.5 7.9 56.5 4.8C56.5 3.3 57.7 2.2 59.1 2.2C60.3 2.2 61.4 3.0 62 3.9C62.6 3.0 63.7 2.2 64.9 2.2C66.3 2.2 67.5 3.3 67.5 4.8C67.5 7.9 62 11.2 62 11.2Z"
+                                            fill="#C59B5F" />
+                                        <path d="M89 7C85 4.5 80 4.5 75 7C80 9.5 85 9.5 89 7Z" stroke="#C59B5F"
+                                            stroke-width="0.75" stroke-opacity="0.75" />
+                                        <path d="M77 7H120" stroke="#C59B5F" stroke-width="0.9" stroke-linecap="round"
+                                            stroke-opacity="0.78" />
+                                    </svg>
+                                </div>
+
+                                <p class="p3-translation-text">
+                                    “Di antara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan
+                                    untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia
+                                    menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian
+                                    itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. BUNGA KANAN-ATAS FRAME -->
+                    <div id="wrapBungaAtasP3" class="ornament-p3-flower-top-pos">
+                        <div class="p3-canvas-shift-wrap p3-canvas-shift-top">
+                            <div class="sway-wrapper sway-flower-right">
+                                <img id="imgBungaAtasHalaman3" class="ornament-img" alt="Ornamen Bunga Atas Halaman 3"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. BUNGA TENGAH-BAWAH FRAME -->
+                    <div id="wrapBungaBawahP3" class="ornament-p3-flower-bottom-pos">
+                        <div class="p3-canvas-shift-wrap p3-canvas-shift-bottom">
+                            <div class="sway-wrapper sway-flower-left">
+                                <img id="imgBungaBawahHalaman3" class="ornament-img" alt="Ornamen Bunga Bawah Halaman 3"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================================================
+                 SLIDE 4: HALAMAN 4 (PROFIL PENGANTIN WANITA & PRIA)
+                 ============================================================== -->
+            <section id="slideHalaman4" class="invitation-slide" data-slide-index="4"
+                aria-label="Halaman Profil Pengantin Wanita dan Pria">
+
+                <!-- 1. BACKGROUND -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman4" alt="Latar Halaman Keempat" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- KANVAS PROPORSIONAL 9:16 -->
+                <div class="slide-safe-stage-p4">
+
+                    <!-- 2. FRAME MAROON BERGELOMBANG (IDLE DIAM / STATIS) -->
+                    <div id="wrapFrameP4" class="ornament-p4-frame-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgFrameHalaman4" class="ornament-img" alt="Frame Maroon Halaman 4"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 3. ILUSTRASI PENGANTIN WANITA (IDLE DIAM / STATIS) -->
+                    <div id="wrapWanitaP4" class="ornament-p4-wanita-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgWanitaHalaman4" class="ornament-img" alt="Ilustrasi Pengantin Wanita"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 4. ILUSTRASI PENGANTIN PRIA (IDLE DIAM / STATIS) -->
+                    <div id="wrapPriaP4" class="ornament-p4-pria-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgPriaHalaman4" class="ornament-img" alt="Ilustrasi Pengantin Pria"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 5. TIPOGRAFI PROFIL PENGANTIN (ALLURA + CORMORANT GARAMOND + AMIRI) -->
+                    <div id="blokTipografiP4" class="layer-typography-couple-p4">
+                        <div class="sway-wrapper p4-typography-float-stage">
+
+                            <!-- Pembuka Atas di Dalam Lengkungan Atas Frame -->
+                            <div class="p4-top-opening">
+                                <p class="p4-basmalah" dir="rtl" lang="ar">
+                                    بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+                                </p>
+                                <p class="p4-salam">
+                                    Assalamu’alaikum Warahmatullahi Wabarakatuh
+                                </p>
+                                <p class="p4-intro">
+                                    <span class="p4-nowrap-line">Dengan memohon rahmat dan ridho Allah SWT,</span>
+                                    <span class="p4-nowrap-line">kami mengundang Bapak/Ibu/Saudara/i</span>
+                                    <span class="p4-nowrap-line">untuk hadir di hari bahagia kami.</span>
+                                </p>
+                            </div>
+
+                            <!-- Nama & Orang Tua Pengantin Wanita -->
+                            <div class="p4-bride-block">
+                                <h2 class="p4-couple-name">
+                                    <span class="p4-nowrap-line">Hj. Azra</span>
+                                    <span class="p4-nowrap-line">Mutia Toha</span>
+                                </h2>
+                                <p class="p4-parent-text">
+                                    <span class="p4-nowrap-line">Putri pertama dari</span>
+                                    <span class="p4-nowrap-line">Bapak H. Ade Mohamad Toha (H. Ade)</span>
+                                    <span class="p4-nowrap-line">&amp; Ibu Hj. Siti Juhaeriah (Hj. Juju)</span>
+                                </p>
+                            </div>
+
+                            <!-- Penghubung "&" -->
+                            <div class="p4-center-amp" aria-hidden="true">&amp;</div>
+
+                            <!-- Nama & Orang Tua Pengantin Pria -->
+                            <div class="p4-groom-block">
+                                <h2 class="p4-couple-name">
+                                    <span class="p4-nowrap-line">H. Ahmad</span>
+                                    <span class="p4-nowrap-line">Iyad Muayyad</span>
+                                </h2>
+                                <p class="p4-parent-text">
+                                    <span class="p4-nowrap-line">Putra pertama dari</span>
+                                    <span class="p4-nowrap-line">Bapak KH. Muhasinuddin (KH. Muh)</span>
+                                    <span class="p4-nowrap-line">&amp; Ibu Hj. Rostiyah (Hj. Ros)</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 6. BUNGA KANAN-ATAS FRAME -->
+                    <div id="wrapBungaAtasP4" class="ornament-p4-flower-top-pos">
+                        <div class="p4-canvas-shift-wrap p4-canvas-shift-top">
+                            <div class="sway-wrapper sway-flower-left">
+                                <img id="imgBungaAtasHalaman4" class="ornament-img" alt="Ornamen Bunga Atas Halaman 4"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. BUNGA KIRI-BAWAH FRAME -->
+                    <div id="wrapBungaBawahP4" class="ornament-p4-flower-bottom-pos">
+                        <div class="p4-canvas-shift-wrap p4-canvas-shift-bottom">
+                            <div class="sway-wrapper sway-flower-right">
+                                <img id="imgBungaBawahHalaman4" class="ornament-img" alt="Ornamen Bunga Bawah Halaman 4"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================================================
+                 SLIDE 5: HALAMAN 5 ("Save the date — Sabtu, 26 Desember 2026")
+                 ============================================================== -->
+            <section id="slideHalaman5" class="invitation-slide" data-slide-index="5"
+                aria-label="Halaman Save the Date Sabtu 26 Desember 2026">
+
+                <!-- 1. BACKGROUND -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman5" alt="Latar Halaman Kelima" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- KANVAS PROPORSIONAL 9:16 -->
+                <div class="slide-safe-stage-p5">
+
+                    <!-- 2. FRAME MAROON BERGELOMBANG (IDLE DIAM / STATIS) -->
+                    <div id="wrapFrameP5" class="ornament-p5-frame-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgFrameHalaman5" class="ornament-img" alt="Frame Maroon Halaman 5"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 3. TIPOGRAFI SAVE THE DATE & TANGGAL (GREAT VIBES & PLAYFAIR DISPLAY) -->
+                    <div id="blokTipografiP5" class="layer-typography-date-p5">
+                        <div class="sway-wrapper p5-typography-float-stage">
+                            <div class="p5-content-box">
+                                <h2 class="p5-save-title">Save the date</h2>
+                                <p class="p5-date-day">Sabtu,</p>
+                                <div class="p5-date-number">26</div>
+                                <p class="p5-date-month-year">Desember 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. BUNGA TENGAH-ATAS PUNCAK FRAME -->
+                    <div id="wrapBungaAtasP5" class="ornament-p5-flower-top-pos">
+                        <div class="p5-canvas-shift-wrap p5-canvas-shift-top">
+                            <div class="sway-wrapper sway-flower-right">
+                                <img id="imgBungaAtasHalaman5" class="ornament-img" alt="Ornamen Bunga Atas Halaman 5"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. BUNGA TENGAH-BAWAH UJUNG FRAME -->
+                    <div id="wrapBungaBawahP5" class="ornament-p5-flower-bottom-pos">
+                        <div class="p5-canvas-shift-wrap p5-canvas-shift-bottom">
+                            <div class="sway-wrapper sway-p5-flower-bottom">
+                                <img id="imgBungaBawahHalaman5" class="ornament-img" alt="Ornamen Bunga Bawah Halaman 5"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================================================
+                 SLIDE 6: HALAMAN 6 (AKAD NIKAH, RESEPSI & LOKASI ACARA + MAPS)
+                 ============================================================== -->
+            <section id="slideHalaman6" class="invitation-slide" data-slide-index="6"
+                aria-label="Halaman Jadwal Akad Resepsi dan Lokasi Acara">
+
+                <!-- 1. BACKGROUND -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman6" alt="Latar Halaman Keenam" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- KANVAS PROPORSIONAL 9:16 -->
+                <div class="slide-safe-stage-p6">
+
+                    <!-- 2. FRAME MAROON BERGELOMBANG (IDLE DIAM / STATIS) -->
+                    <div id="wrapFrameP6" class="ornament-p6-frame-pos">
+                        <div class="sway-wrapper">
+                            <img id="imgFrameHalaman6" class="ornament-img" alt="Frame Maroon Halaman 6"
+                                referrerpolicy="no-referrer" />
+                        </div>
+                    </div>
+
+                    <!-- 3. TIPOGRAFI JADWAL & LOKASI (PLAYFAIR DISPLAY BOLD & LORA) -->
+                    <div id="blokTipografiP6" class="layer-typography-event-p6">
+                        <div class="sway-wrapper p6-typography-float-stage">
+                            <div class="p6-content-stack">
+
+                                <!-- Jadwal 1: Akad Nikah -->
+                                <div class="p6-schedule-item p6-schedule-item-top">
+                                    <h3 class="p6-section-heading">Akad Nikah</h3>
+                                    <p class="p6-time-text">Pukul 09.00 - Selesai</p>
+                                </div>
+
+                                <!-- Jadwal 2: Resepsi Pernikahan -->
+                                <div class="p6-schedule-item p6-schedule-item-second">
+                                    <h3 class="p6-section-heading">Resepsi Pernikahan</h3>
+                                    <p class="p6-time-text">Pukul 11.00 - Selesai</p>
+                                </div>
+
+                                <!-- Sketsa Arsitektural Kediaman Klasik Anggun (Denyut Halus) -->
+                                <div class="p6-venue-svg-wrap" aria-hidden="true">
+                                    <svg viewBox="0 0 540 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Garis Dasar Halaman & Teras Melengkung Depan -->
+                                        <path d="M22 178C105 166 190 163 270 163C350 163 435 166 518 178"
+                                            stroke="#F6EADF" stroke-width="1.35" stroke-linecap="round" />
+                                        <path d="M46 184C122 173 196 170 270 170C344 170 418 173 494 184"
+                                            stroke="#E5C38C" stroke-width="1.0" stroke-linecap="round"
+                                            stroke-opacity="0.85" />
+                                        <path d="M98 192C160 184 215 181 270 181C325 181 380 184 442 192"
+                                            stroke="#F6EADF" stroke-width="0.9" stroke-linecap="round"
+                                            stroke-opacity="0.72" />
+
+                                        <!-- Sayap Atap Pelana Kiri & Kanan + Cerobong Kembar -->
+                                        <path d="M62 72L136 30L210 72H62Z" stroke="#F8EEE4" stroke-width="1.5"
+                                            stroke-linejoin="round" />
+                                        <path d="M74 69L136 35L198 69" stroke="#E5C38C" stroke-width="0.95"
+                                            stroke-linejoin="round" stroke-opacity="0.85" />
+                                        <circle cx="136" cy="54" r="7.5" stroke="#F8EEE4" stroke-width="1.15" />
+                                        <path d="M136 46.5V61.5M128.5 54H143.5" stroke="#E5C38C" stroke-width="0.8" />
+
+                                        <path d="M330 72L404 30L478 72H330Z" stroke="#F8EEE4" stroke-width="1.5"
+                                            stroke-linejoin="round" />
+                                        <path d="M342 69L404 35L466 69" stroke="#E5C38C" stroke-width="0.95"
+                                            stroke-linejoin="round" stroke-opacity="0.85" />
+                                        <circle cx="404" cy="54" r="7.5" stroke="#F8EEE4" stroke-width="1.15" />
+                                        <path d="M404 46.5V61.5M396.5 54H411.5" stroke="#E5C38C" stroke-width="0.8" />
+
+                                        <!-- Atap Penghubung Tengah & Pedimen Portico Utama -->
+                                        <path d="M196 58L225 44H315L344 58" stroke="#F8EEE4" stroke-width="1.3"
+                                            stroke-linejoin="round" />
+                                        <path d="M206 72H334" stroke="#F8EEE4" stroke-width="1.4" />
+                                        <path d="M232 72L270 46L308 72H232Z" stroke="#F8EEE4" stroke-width="1.55"
+                                            stroke-linejoin="round" />
+                                        <path d="M242 70L270 51L298 70" stroke="#E5C38C" stroke-width="0.95"
+                                            stroke-linejoin="round" />
+                                        <circle cx="270" cy="62" r="4.5" stroke="#E5C38C" stroke-width="1.0" />
+
+                                        <!-- Ornamen Cerobong Klasik -->
+                                        <path d="M214 49V36H225V44" stroke="#F8EEE4" stroke-width="1.15"
+                                            stroke-linejoin="round" />
+                                        <path d="M212 36H227" stroke="#E5C38C" stroke-width="1.1"
+                                            stroke-linecap="round" />
+                                        <path d="M326 49V36H315V44" stroke="#F8EEE4" stroke-width="1.15"
+                                            stroke-linejoin="round" />
+                                        <path d="M313 36H328" stroke="#E5C38C" stroke-width="1.1"
+                                            stroke-linecap="round" />
+
+                                        <!-- Lisplang & Cornice Lantai 2 dan Lantai 1 -->
+                                        <rect x="68" y="72" width="404" height="5" stroke="#F8EEE4"
+                                            stroke-width="1.15" />
+                                        <line x1="68" y1="114" x2="472" y2="114" stroke="#F8EEE4" stroke-width="1.3" />
+                                        <line x1="66" y1="118" x2="474" y2="118" stroke="#E5C38C" stroke-width="0.95"
+                                            stroke-opacity="0.85" />
+                                        <line x1="64" y1="156" x2="476" y2="156" stroke="#F8EEE4" stroke-width="1.45" />
+
+                                        <!-- Dinding Vertikal Sayap Kiri, Tengah & Sayap Kanan -->
+                                        <line x1="72" y1="77" x2="72" y2="156" stroke="#F8EEE4" stroke-width="1.4" />
+                                        <line x1="200" y1="77" x2="200" y2="156" stroke="#F8EEE4" stroke-width="1.25" />
+                                        <line x1="340" y1="77" x2="340" y2="156" stroke="#F8EEE4" stroke-width="1.25" />
+                                        <line x1="468" y1="77" x2="468" y2="156" stroke="#F8EEE4" stroke-width="1.4" />
+
+                                        <!-- Pilar Portico Tengah & Pintu Lengkung Utama -->
+                                        <line x1="238" y1="77" x2="238" y2="156" stroke="#F8EEE4" stroke-width="1.35" />
+                                        <line x1="243" y1="77" x2="243" y2="156" stroke="#E5C38C" stroke-width="0.85" />
+                                        <line x1="297" y1="77" x2="297" y2="156" stroke="#E5C38C" stroke-width="0.85" />
+                                        <line x1="302" y1="77" x2="302" y2="156" stroke="#F8EEE4" stroke-width="1.35" />
+
+                                        <!-- Jendela Lengkung Lantai 2 Tengah & Balkon Kecil -->
+                                        <path d="M258 110V90C258 84.5 263.4 81 270 81C276.6 81 282 84.5 282 90V110H258Z"
+                                            stroke="#F8EEE4" stroke-width="1.2" />
+                                        <line x1="270" y1="81" x2="270" y2="110" stroke="#E5C38C" stroke-width="0.8" />
+                                        <line x1="258" y1="95" x2="282" y2="95" stroke="#E5C38C" stroke-width="0.8" />
+                                        <rect x="250" y="108" width="40" height="6" stroke="#F8EEE4"
+                                            stroke-width="1.0" />
+
+                                        <!-- Pintu Utama Lengkung Ganda Lantai 1 Tengah -->
+                                        <path
+                                            d="M254 156V131C254 123.5 261.2 119 270 119C278.8 119 286 123.5 286 131V156H254Z"
+                                            stroke="#F8EEE4" stroke-width="1.35" />
+                                        <path
+                                            d="M258 156V132C258 126.5 263.4 123 270 123C276.6 123 282 126.5 282 132V156"
+                                            stroke="#E5C38C" stroke-width="0.85" />
+                                        <line x1="270" y1="123" x2="270" y2="156" stroke="#F8EEE4"
+                                            stroke-width="1.05" />
+
+                                        <!-- Jendela Samping Portico Tengah -->
+                                        <rect x="213" y="84" width="14" height="23" rx="7" stroke="#F8EEE4"
+                                            stroke-width="1.05" />
+                                        <rect x="313" y="84" width="14" height="23" rx="7" stroke="#F8EEE4"
+                                            stroke-width="1.05" />
+                                        <rect x="213" y="125" width="14" height="25" rx="7" stroke="#F8EEE4"
+                                            stroke-width="1.05" />
+                                        <rect x="313" y="125" width="14" height="25" rx="7" stroke="#F8EEE4"
+                                            stroke-width="1.05" />
+
+                                        <!-- 4 Deret Jendela Klasik Sayap Kiri -->
+                                        <g stroke="#F8EEE4" stroke-width="1.05">
+                                            <path d="M84 108V88C84 84.5 87 82 90.5 82C94 82 97 84.5 97 88V108H84Z" />
+                                            <path
+                                                d="M112 108V88C112 84.5 115 82 118.5 82C122 82 125 84.5 125 88V108H112Z" />
+                                            <path
+                                                d="M145 108V88C145 84.5 148 82 151.5 82C155 82 158 84.5 158 88V108H145Z" />
+                                            <path
+                                                d="M173 108V88C173 84.5 176 82 179.5 82C183 82 186 84.5 186 88V108H173Z" />
+
+                                            <rect x="84" y="125" width="14" height="25" rx="2" />
+                                            <rect x="112" y="125" width="14" height="25" rx="2" />
+                                            <rect x="145" y="125" width="14" height="25" rx="2" />
+                                            <rect x="173" y="125" width="14" height="25" rx="2" />
+                                        </g>
+                                        <g stroke="#E5C38C" stroke-width="0.75" stroke-opacity="0.82">
+                                            <line x1="90.5" y1="82" x2="90.5" y2="108" />
+                                            <line x1="118.5" y1="82" x2="118.5" y2="108" />
+                                            <line x1="151.5" y1="82" x2="151.5" y2="108" />
+                                            <line x1="179.5" y1="82" x2="179.5" y2="108" />
+                                            <line x1="91" y1="125" x2="91" y2="150" />
+                                            <line x1="119" y1="125" x2="119" y2="150" />
+                                            <line x1="152" y1="125" x2="152" y2="150" />
+                                            <line x1="180" y1="125" x2="180" y2="150" />
+                                        </g>
+
+                                        <!-- 4 Deret Jendela Klasik Sayap Kanan -->
+                                        <g stroke="#F8EEE4" stroke-width="1.05">
+                                            <path
+                                                d="M354 108V88C354 84.5 357 82 360.5 82C364 82 367 84.5 367 88V108H354Z" />
+                                            <path
+                                                d="M382 108V88C382 84.5 385 82 388.5 82C392 82 395 84.5 395 88V108H382Z" />
+                                            <path
+                                                d="M415 108V88C415 84.5 418 82 421.5 82C425 82 428 84.5 428 88V108H415Z" />
+                                            <path
+                                                d="M443 108V88C443 84.5 446 82 449.5 82C453 82 456 84.5 456 88V108H443Z" />
+
+                                            <rect x="354" y="125" width="14" height="25" rx="2" />
+                                            <rect x="382" y="125" width="14" height="25" rx="2" />
+                                            <rect x="415" y="125" width="14" height="25" rx="2" />
+                                            <rect x="443" y="125" width="14" height="25" rx="2" />
+                                        </g>
+                                        <g stroke="#E5C38C" stroke-width="0.75" stroke-opacity="0.82">
+                                            <line x1="360.5" y1="82" x2="360.5" y2="108" />
+                                            <line x1="388.5" y1="82" x2="388.5" y2="108" />
+                                            <line x1="421.5" y1="82" x2="421.5" y2="108" />
+                                            <line x1="449.5" y1="82" x2="449.5" y2="108" />
+                                            <line x1="361" y1="125" x2="361" y2="150" />
+                                            <line x1="389" y1="125" x2="389" y2="150" />
+                                            <line x1="422" y1="125" x2="422" y2="150" />
+                                            <line x1="450" y1="125" x2="450" y2="150" />
+                                        </g>
+
+                                        <!-- Pohon Taman Pengapit Portico -->
+                                        <path d="M202 156C196 142 197 118 203 98C209 118 210 142 204 156Z"
+                                            fill="#5B1117" stroke="#F8EEE4" stroke-width="1.2" />
+                                        <path
+                                            d="M200 120C202 117 205 117 206 120M199 133C202 130 205 130 207 133M199 145C202 142 205 142 207 145"
+                                            stroke="#E5C38C" stroke-width="0.85" stroke-linecap="round" />
+
+                                        <path d="M336 156C330 142 331 118 337 98C343 118 344 142 338 156Z"
+                                            fill="#5B1117" stroke="#F8EEE4" stroke-width="1.2" />
+                                        <path
+                                            d="M334 120C336 117 339 117 340 120M333 133C336 130 339 130 341 133M333 145C336 142 339 142 341 145"
+                                            stroke="#E5C38C" stroke-width="0.85" stroke-linecap="round" />
+
+                                        <!-- Semak Taman Samping -->
+                                        <path
+                                            d="M40 164C38 153 45 145 53 147C55 139 65 138 69 145C75 145 79 152 76 160L40 164Z"
+                                            fill="#5B1117" stroke="#F8EEE4" stroke-width="1.15"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M500 164C502 153 495 145 487 147C485 139 475 138 471 145C465 145 461 152 464 160L500 164Z"
+                                            fill="#5B1117" stroke="#F8EEE4" stroke-width="1.15"
+                                            stroke-linejoin="round" />
+
+                                        <!-- Pagar Balustrade Teras & Kolam Depan -->
+                                        <path d="M76 163H234M306 163H464" stroke="#F8EEE4" stroke-width="1.15" />
+                                        <path d="M236 156L228 170H312L304 156" stroke="#F8EEE4" stroke-width="1.15"
+                                            stroke-linejoin="round" />
+                                        <line x1="233" y1="161" x2="307" y2="161" stroke="#E5C38C"
+                                            stroke-width="0.85" />
+                                        <line x1="230" y1="166" x2="310" y2="166" stroke="#E5C38C"
+                                            stroke-width="0.85" />
+
+                                        <ellipse cx="270" cy="187" rx="34" ry="7.5" fill="#5B1117" stroke="#F8EEE4"
+                                            stroke-width="1.2" />
+                                        <ellipse cx="270" cy="187" rx="24" ry="4.5" stroke="#E5C38C"
+                                            stroke-width="0.85" />
+                                        <path d="M264 185C264 179 267 175 270 173C273 175 276 179 276 185"
+                                            stroke="#F8EEE4" stroke-width="1.1" stroke-linecap="round" />
+                                        <path d="M270 173C265 170 259 173 258 179M270 173C275 170 281 173 282 179"
+                                            stroke="#E5C38C" stroke-width="0.85" stroke-linecap="round" />
+                                    </svg>
+                                </div>
+
+                                <!-- Lokasi & Alamat Lengkap -->
+                                <div class="p6-location-block">
+                                    <h3 class="p6-section-heading">Kediaman Mempelai Wanita</h3>
+                                    <p class="p6-address-text">
+                                        <span class="p6-nowrap-line">Jl. Ps. Kemis 009/002 Desa Sukaharja,</span>
+                                        <span class="p6-nowrap-line">Kec. Sindang Jaya, Kab. Tangerang - Banten</span>
+                                    </p>
+                                </div>
+
+                                <!-- Tombol Interaktif Buka Google Maps -->
+                                <a id="btnMapsHalaman6" href="https://maps.app.goo.gl/o8H9iiwd2hrZoqH47" target="_blank"
+                                    rel="noopener noreferrer" class="p6-maps-btn"
+                                    aria-label="Buka lokasi Rumah Mempelai Wanita di Google Maps">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8C68E" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    <span>Buka Google Maps</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. BUNGA KIRI-ATAS FRAME -->
+                    <div id="wrapBungaKiriP6" class="ornament-p6-flower-left-pos">
+                        <div class="p6-canvas-shift-wrap p6-canvas-shift-left">
+                            <div class="sway-wrapper sway-flower-right">
+                                <img id="imgBungaKiriHalaman6" class="ornament-img" alt="Ornamen Bunga Kiri Halaman 6"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. BUNGA KANAN-TENGAH FRAME -->
+                    <div id="wrapBungaKananP6" class="ornament-p6-flower-right-pos">
+                        <div class="p6-canvas-shift-wrap p6-canvas-shift-right">
+                            <div class="sway-wrapper sway-p5-flower-bottom">
+                                <img id="imgBungaKananHalaman6" class="ornament-img" alt="Ornamen Bunga Kanan Halaman 6"
+                                    referrerpolicy="no-referrer" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================================================
+                 SLIDE 7: HALAMAN 7 (PENUTUP & ILUSTRASI PASANGAN "Ara & Iyad")
+                 ============================================================== -->
+            <section id="slideHalaman7" class="invitation-slide" data-slide-index="7"
+                aria-label="Halaman Ucapan Penutup dan Doa Restu Ara dan Iyad">
+
+                <!-- 1. BACKGROUND -->
+                <div class="layer-static-bg">
+                    <img id="imgBgHalaman7" alt="Latar Halaman Ketujuh" referrerpolicy="no-referrer" />
+                </div>
+
+                <!-- KANVAS PROPORSIONAL 9:16 -->
+                <div class="slide-safe-stage-p7">
+
+                    <!-- 2. ILUSTRASI PASANGAN PENGANTIN (100% DIAM / STATIS) -->
+                    <div id="wrapPasanganP7" class="ornament-p7-couple-pos couple-static-p7">
+                        <img id="imgPasanganHalaman7" class="ornament-img"
+                            alt="Ilustrasi Pasangan Pengantin Ara dan Iyad" referrerpolicy="no-referrer" />
+                    </div>
+
+                    <!-- 3. TIPOGRAFI PENUTUP (ALLURA & LIBRE BASKERVILLE) -->
+                    <div id="blokTipografiP7" class="layer-typography-closing-p7">
+                        <div class="p7-typography-float-stage">
+
+                            <!-- Kalimat Kehormatan & Salam Penutup -->
+                            <div class="p7-top-closing">
+                                <p class="p7-closing-para">
+                                    <span class="p7-nowrap-line">Merupakan sebuah kehormatan dan kebahagiaan</span>
+                                    <span class="p7-nowrap-line">bagi kami, apabila Bapak/Ibu/Saudara/i berkenan</span>
+                                    <span class="p7-nowrap-line">hadir untuk memberikan do’a restu kepada kami.</span>
+                                </p>
+                                <p class="p7-closing-salam">
+                                    Wassalamu’alaikum Warahmatullahi Wabarakatuh
+                                </p>
+                            </div>
+
+                            <!-- "Kami yang berbahagia," -->
+                            <div class="p7-happy-label">Kami yang berbahagia,</div>
+
+                            <!-- "Ara" -->
+                            <div class="p7-couple-script p7-bride-pos">Hj. Ara</div>
+
+                            <!-- "&" -->
+                            <div class="p7-center-amp" aria-hidden="true">&amp;</div>
+
+                            <!-- "Iyad" -->
+                            <div class="p7-couple-script p7-groom-pos">H. Iyad</div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
     <!-- ==========================================================================
-         5. IFRAME PEMBUNGKUS GOOGLE APPS SCRIPT WEB APP
-         Langsung memuat URL /exec Google Apps Script Anda dengan izin fitur penuh
-         (musik autoplay, salin teks/nomor rekening clipboard, dan layar penuh).
+         LOGIKA JAVASCRIPT FRONTEND (MURNI TANPA BACKTICK)
          ========================================================================== -->
-    <div class="iframe-viewport-wrapper">
-        <iframe
-            class="gas-wedding-iframe"
-            src="https://script.google.com/macros/s/AKfycbzHs2aL-hITbiBdevNr1ZsceS_aFVny-v4fZhoJnbJhWGBTijolUbgZ_lam4diBkM-Eaw/exec"
-            title="The Wedding Of Ara &amp; Iyad"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen"
-            loading="eager"
-            allowfullscreen>
-        </iframe>
-    </div>
+    <script>
+        (function () {
+            'use strict';
+
+            var ASET_HALAMAN_1 = {
+                background: 'https://drive.google.com/file/d/1CqmtolNiyS84GETNgLiKY-P8weK5dt0G/view?usp=drive_link',
+                amplop: 'https://drive.google.com/file/d/1Mk7YirM1dGgUf1Quayplwi69x1WnWauI/view?usp=drive_link',
+                bungaKanan: 'https://drive.google.com/file/d/1VSfIcCyxExjjFno-rVg5WU0NXuSmizrF/view?usp=drive_link',
+                bungaKiri: 'https://drive.google.com/file/d/1rJPuGnzHBHp1uLtt0dlKQakkg1SN7v9L/view?usp=drive_link'
+            };
+
+            var ASET_HALAMAN_2 = {
+                amplopTerbuka: 'https://drive.google.com/file/d/110sJMrhNFiDShZfRs-jG8rDsTr2bFE0W/view?usp=drive_link',
+                segelAmplop: 'https://drive.google.com/file/d/1VKJvlGdmQ8gaiN8UWM2urhSA1css4mn3/view?usp=drive_link'
+            };
+
+            var ASET_HALAMAN_3 = {
+                frameOval: 'https://drive.google.com/file/d/1qfHCUmVDFv3v45gqefylokWlYzLVdegz/view?usp=drive_link'
+            };
+
+            var ASET_HALAMAN_4 = {
+                frameMaroon: 'https://drive.google.com/file/d/1adCUDlsmq504saTx9DUS8bxU-ebHDjPB/view?usp=drive_link',
+                wanita: 'https://drive.google.com/file/d/1Dr6lgghmodKMGDOWFbDi2FiF-O1QiD8d/view?usp=drive_link',
+                pria: 'https://drive.google.com/file/d/1acKoo44X_4E1yhaWOpw6YHSLmog37dMA/view?usp=drive_link'
+            };
+
+            var ASET_HALAMAN_7 = {
+                pasangan: 'https://drive.google.com/file/d/1RK0UZqN1pWDULgWeoDokZtdesEW1gvw6/view?usp=drive_link'
+            };
+
+            var ASET_MUSIK_LOKAL = 'lagu.mp3';
+            var ASET_MUSIK_LATAR = 'https://drive.google.com/file/d/1sIrc69HLbEWGedKyLHiN0uyk4sJs3Dj-/view?usp=drive_link';
+
+            var STATE_APLIKASI = {
+                sudahDibuka: false,
+                musikSudahBerjalan: false,
+                musikMenungguInteraksi: false,
+                blobUrlMusik: '',
+                idTamu: '',
+                namaTamu: 'Tamu Undangan',
+                bgNaturalWidth: 0,
+                bgNaturalHeight: 0,
+                jumlahAsetSelesai: 0,
+                totalAsetUtama: 4,
+                adaKendalaAksesDrive: false
+            };
+
+            var timerToast = null;
+
+            function ekstrakFileIdGoogleDrive(rawUrl) {
+                var bersih = String(rawUrl || '').trim();
+                if (bersih === '') {
+                    return '';
+                }
+
+                var cocokPathD = bersih.match(/\/d\/([a-zA-Z0-9_-]{15,})/);
+                if (cocokPathD && cocokPathD[1]) {
+                    return cocokPathD[1];
+                }
+
+                var cocokQueryId = bersih.match(/[?&]id=([a-zA-Z0-9_-]{15,})/);
+                if (cocokQueryId && cocokQueryId[1]) {
+                    return cocokQueryId[1];
+                }
+
+                return '';
+            }
+
+            function bangunDaftarEndpointGambar(rawUrl) {
+                var bersih = String(rawUrl || '').trim();
+                var driveId = ekstrakFileIdGoogleDrive(bersih);
+
+                if (driveId !== '') {
+                    return [
+                        'https://lh3.googleusercontent.com/d/' + driveId + '=s1600',
+                        'https://lh3.googleusercontent.com/d/' + driveId,
+                        'https://drive.google.com/thumbnail?id=' + driveId + '&sz=w1600',
+                        'https://drive.usercontent.google.com/download?id=' + driveId + '&export=view'
+                    ];
+                }
+
+                if (bersih !== '') {
+                    return [bersih];
+                }
+                return [];
+            }
+
+            function tampilkanToastUndangan(judulPesan, subPesan) {
+                var elemenToast = document.getElementById('customInvitationToast');
+                var elemenIsi = document.getElementById('customToastBody');
+                if (!elemenToast || !elemenIsi) {
+                    return;
+                }
+
+                var teksJudul = String(judulPesan || 'Informasi');
+                var teksSub = String(subPesan || '');
+
+                var htmlToast = '<div class="font-semibold text-[#fde6dc] tracking-wide">' + teksJudul + '</div>';
+                if (teksSub.length > 0) {
+                    htmlToast = htmlToast + '<div class="text-[11px] text-white/85 mt-0.5">' + teksSub + '</div>';
+                }
+
+                elemenIsi.innerHTML = htmlToast;
+                elemenToast.classList.add('is-active');
+
+                if (timerToast) {
+                    clearTimeout(timerToast);
+                }
+                timerToast = setTimeout(function () {
+                    elemenToast.classList.remove('is-active');
+                }, 3600);
+            }
+
+            function sesuaikanModeKanvasOrnamen() {
+                var bgW = STATE_APLIKASI.bgNaturalWidth;
+                var bgH = STATE_APLIKASI.bgNaturalHeight;
+                if (bgW <= 0 || bgH <= 0) {
+                    return;
+                }
+
+                var daftarOrnamen = [
+                    { imgId: 'imgAmplopHalaman1', wrapId: 'wrapAmplop' },
+                    { imgId: 'imgBungaKananHalaman1', wrapId: 'wrapBungaKanan' },
+                    { imgId: 'imgBungaKiriHalaman1', wrapId: 'wrapBungaKiri' },
+                    { imgId: 'imgAmplopHalaman2', wrapId: 'wrapAmplopP2' },
+                    { imgId: 'imgSegelHalaman2', wrapId: 'wrapSegelP2' },
+                    { imgId: 'imgBungaKiriHalaman2', wrapId: 'wrapBungaKiriP2' },
+                    { imgId: 'imgBungaKananHalaman2', wrapId: 'wrapBungaKananP2' },
+                    { imgId: 'imgFrameHalaman3', wrapId: 'wrapFrameP3' },
+                    { imgId: 'imgBungaAtasHalaman3', wrapId: 'wrapBungaAtasP3' },
+                    { imgId: 'imgBungaBawahHalaman3', wrapId: 'wrapBungaBawahP3' },
+                    { imgId: 'imgFrameHalaman4', wrapId: 'wrapFrameP4' },
+                    { imgId: 'imgWanitaHalaman4', wrapId: 'wrapWanitaP4' },
+                    { imgId: 'imgPriaHalaman4', wrapId: 'wrapPriaP4' },
+                    { imgId: 'imgBungaAtasHalaman4', wrapId: 'wrapBungaAtasP4' },
+                    { imgId: 'imgBungaBawahHalaman4', wrapId: 'wrapBungaBawahP4' },
+                    { imgId: 'imgFrameHalaman5', wrapId: 'wrapFrameP5' },
+                    { imgId: 'imgBungaAtasHalaman5', wrapId: 'wrapBungaAtasP5' },
+                    { imgId: 'imgBungaBawahHalaman5', wrapId: 'wrapBungaBawahP5' },
+                    { imgId: 'imgFrameHalaman6', wrapId: 'wrapFrameP6' },
+                    { imgId: 'imgBungaKiriHalaman6', wrapId: 'wrapBungaKiriP6' },
+                    { imgId: 'imgBungaKananHalaman6', wrapId: 'wrapBungaKananP6' },
+                    { imgId: 'imgPasanganHalaman7', wrapId: 'wrapPasanganP7' }
+                ];
+
+                var i;
+                for (i = 0; i < daftarOrnamen.length; i++) {
+                    var elImg = document.getElementById(daftarOrnamen[i].imgId);
+                    var elWrap = document.getElementById(daftarOrnamen[i].wrapId);
+
+                    if (elImg && elWrap && elImg.naturalWidth > 0 && elImg.naturalHeight > 0) {
+                        var selisihW = Math.abs(elImg.naturalWidth - bgW) / bgW;
+                        var selisihH = Math.abs(elImg.naturalHeight - bgH) / bgH;
+
+                        if (selisihW < 0.045 && selisihH < 0.045) {
+                            elWrap.classList.add('mode-full-canvas');
+                        } else {
+                            elWrap.classList.remove('mode-full-canvas');
+                        }
+                    }
+                }
+            }
+
+            function tandaiSatuAsetSelesai() {
+                STATE_APLIKASI.jumlahAsetSelesai = STATE_APLIKASI.jumlahAsetSelesai + 1;
+                if (STATE_APLIKASI.jumlahAsetSelesai >= STATE_APLIKASI.totalAsetUtama) {
+                    tutupPreloaderDanMulaiAnimasi();
+                }
+            }
+
+            var sudahMulaiAnimasiAwal = false;
+            var bangunkanLoopParallax = null;
+
+            function tutupPreloaderDanMulaiAnimasi() {
+                if (sudahMulaiAnimasiAwal) {
+                    sesuaikanModeKanvasOrnamen();
+                    return;
+                }
+                sudahMulaiAnimasiAwal = true;
+
+                sesuaikanModeKanvasOrnamen();
+
+                var preloader = document.getElementById('preloaderHalaman1');
+                if (preloader) {
+                    preloader.classList.add('is-hidden');
+                }
+
+                setTimeout(function () {
+                    var slide1 = document.getElementById('slideHalaman1');
+                    if (slide1) {
+                        slide1.classList.add('is-inview');
+                    }
+                    if (typeof bangunkanLoopParallax === 'function') {
+                        bangunkanLoopParallax();
+                    }
+                }, 45);
+            }
+
+            function muatGambarDrive(idElemenImg, labelAset, rawUrl, isAsetUtama, onSuksesKhusus) {
+                var imgEl = document.getElementById(idElemenImg);
+                if (!imgEl) {
+                    if (isAsetUtama) {
+                        tandaiSatuAsetSelesai();
+                    }
+                    return;
+                }
+
+                var daftarKandidat = bangunDaftarEndpointGambar(rawUrl);
+                if (!daftarKandidat.length) {
+                    if (isAsetUtama) {
+                        tandaiSatuAsetSelesai();
+                    }
+                    return;
+                }
+
+                var indeksCoba = 0;
+
+                function cobaMuatBerikutnya() {
+                    if (indeksCoba >= daftarKandidat.length) {
+                        if (!STATE_APLIKASI.adaKendalaAksesDrive) {
+                            STATE_APLIKASI.adaKendalaAksesDrive = true;
+                            tampilkanToastUndangan(
+                                'Aset "' + labelAset + '" Belum Terbuka Publik',
+                                'Pastikan izin file di Google Drive diatur ke "Siapa saja yang memiliki link".'
+                            );
+                        }
+                        if (isAsetUtama) {
+                            tandaiSatuAsetSelesai();
+                        }
+                        return;
+                    }
+
+                    var kandidatUrl = daftarKandidat[indeksCoba];
+                    indeksCoba = indeksCoba + 1;
+
+                    imgEl.onload = function () {
+                        if (typeof onSuksesKhusus === 'function') {
+                            onSuksesKhusus(imgEl);
+                        }
+                        sesuaikanModeKanvasOrnamen();
+                        if (isAsetUtama) {
+                            tandaiSatuAsetSelesai();
+                        }
+                    };
+
+                    imgEl.onerror = function () {
+                        cobaMuatBerikutnya();
+                    };
+
+                    imgEl.src = kandidatUrl;
+                }
+
+                cobaMuatBerikutnya();
+            }
+
+            function salinSumberGambarKeTarget(idTarget, srcValid) {
+                var elTarget = document.getElementById(idTarget);
+                if (elTarget && srcValid) {
+                    elTarget.onload = function () {
+                        sesuaikanModeKanvasOrnamen();
+                    };
+                    elTarget.src = srcValid;
+                }
+            }
+
+            function pasangSeluruhAsetUndangan() {
+                // 1. Background Halaman 1 -> Bagikan URL instan ke Halaman 2, 3, 4, 5, 6, 7 (0 unduhan ulang)
+                muatGambarDrive('imgBgHalaman1', 'Background', ASET_HALAMAN_1.background, true, function (elBg) {
+                    STATE_APLIKASI.bgNaturalWidth = elBg.naturalWidth || 0;
+                    STATE_APLIKASI.bgNaturalHeight = elBg.naturalHeight || 0;
+
+                    var bgHal2 = document.getElementById('imgBgHalaman2');
+                    var bgHal3 = document.getElementById('imgBgHalaman3');
+                    var bgHal4 = document.getElementById('imgBgHalaman4');
+                    var bgHal5 = document.getElementById('imgBgHalaman5');
+                    var bgHal6 = document.getElementById('imgBgHalaman6');
+                    var bgHal7 = document.getElementById('imgBgHalaman7');
+                    if (bgHal2 && elBg.src) {
+                        bgHal2.src = elBg.src;
+                    }
+                    if (bgHal3 && elBg.src) {
+                        bgHal3.src = elBg.src;
+                    }
+                    if (bgHal4 && elBg.src) {
+                        bgHal4.src = elBg.src;
+                    }
+                    if (bgHal5 && elBg.src) {
+                        bgHal5.src = elBg.src;
+                    }
+                    if (bgHal6 && elBg.src) {
+                        bgHal6.src = elBg.src;
+                    }
+                    if (bgHal7 && elBg.src) {
+                        bgHal7.src = elBg.src;
+                    }
+                });
+
+                // 2. Amplop Halaman 1
+                muatGambarDrive('imgAmplopHalaman1', 'Amplop Halaman 1', ASET_HALAMAN_1.amplop, true, null);
+
+                // 3. Bunga Kanan -> Bagikan URL instan ke Halaman 2, 3, 4, 5, 6
+                muatGambarDrive('imgBungaKananHalaman1', 'Bunga Kanan', ASET_HALAMAN_1.bungaKanan, true, function (elBungaKanan) {
+                    salinSumberGambarKeTarget('imgBungaKananHalaman2', elBungaKanan.src);
+                    salinSumberGambarKeTarget('imgBungaAtasHalaman3', elBungaKanan.src);
+                    salinSumberGambarKeTarget('imgBungaBawahHalaman4', elBungaKanan.src);
+                    salinSumberGambarKeTarget('imgBungaAtasHalaman5', elBungaKanan.src);
+                    salinSumberGambarKeTarget('imgBungaBawahHalaman5', elBungaKanan.src);
+                    salinSumberGambarKeTarget('imgBungaKiriHalaman6', elBungaKanan.src);
+                    salinSumberGambarKeTarget('imgBungaKananHalaman6', elBungaKanan.src);
+                });
+
+                // 4. Bunga Kiri -> Bagikan URL instan ke Halaman 2, 3, 4
+                muatGambarDrive('imgBungaKiriHalaman1', 'Bunga Kiri', ASET_HALAMAN_1.bungaKiri, true, function (elBungaKiri) {
+                    salinSumberGambarKeTarget('imgBungaKiriHalaman2', elBungaKiri.src);
+                    salinSumberGambarKeTarget('imgBungaBawahHalaman3', elBungaKiri.src);
+                    salinSumberGambarKeTarget('imgBungaAtasHalaman4', elBungaKiri.src);
+                });
+
+                // 5. Aset Spesifik Halaman 2, 3, 4 & 7
+                muatGambarDrive('imgAmplopHalaman2', 'Amplop Halaman 2', ASET_HALAMAN_2.amplopTerbuka, false, null);
+                muatGambarDrive('imgSegelHalaman2', 'Segel Amplop', ASET_HALAMAN_2.segelAmplop, false, null);
+                muatGambarDrive('imgFrameHalaman3', 'Frame Halaman 3', ASET_HALAMAN_3.frameOval, false, null);
+                muatGambarDrive('imgFrameHalaman4', 'Frame Halaman 4', ASET_HALAMAN_4.frameMaroon, false, function (elFrame4) {
+                    salinSumberGambarKeTarget('imgFrameHalaman5', elFrame4.src);
+                    salinSumberGambarKeTarget('imgFrameHalaman6', elFrame4.src);
+                });
+                muatGambarDrive('imgWanitaHalaman4', 'Pengantin Wanita Halaman 4', ASET_HALAMAN_4.wanita, false, null);
+                muatGambarDrive('imgPriaHalaman4', 'Pengantin Pria Halaman 4', ASET_HALAMAN_4.pria, false, null);
+                muatGambarDrive('imgPasanganHalaman7', 'Pasangan Pengantin Halaman 7', ASET_HALAMAN_7.pasangan, false, null);
+
+                setTimeout(function () {
+                    tutupPreloaderDanMulaiAnimasi();
+                }, 2800);
+            }
+
+            /**
+             * Mesin Multi-Layer Vertical Parallax 60fps
+             */
+            function inisialisasiPemantauScrollAnimasi() {
+                var kontainerScroll = document.getElementById('mainScrollStage');
+                if (!kontainerScroll) {
+                    return;
+                }
+
+                var petaKonfigurasiSlide = [
+                    {
+                        slideId: 'slideHalaman1',
+                        layers: [
+                            { id: 'wrapAmplop', masuk: 0.24, keluar: 0.18, redaman: 0.19 },
+                            { id: 'amplopInteraktif', masuk: 0.24, keluar: 0.18, redaman: 0.19 },
+                            { id: 'blokTipografiJudul', masuk: 0.48, keluar: 0.62, redaman: 0.14 },
+                            { id: 'wrapBungaKanan', masuk: 0.68, keluar: 0.42, redaman: 0.115 },
+                            { id: 'wrapBungaKiri', masuk: 0.78, keluar: 0.46, redaman: 0.105 }
+                        ]
+                    },
+                    {
+                        slideId: 'slideHalaman2',
+                        layers: [
+                            { id: 'wrapAmplopP2', masuk: 0.20, keluar: 0.14, redaman: 0.20 },
+                            { id: 'wrapSegelP2', masuk: 0.44, keluar: 0.34, redaman: 0.155 },
+                            { id: 'blokTipografiP2', masuk: 0.62, keluar: 0.64, redaman: 0.135 },
+                            { id: 'wrapBungaKiriP2', masuk: 0.74, keluar: 0.44, redaman: 0.11 },
+                            { id: 'wrapBungaKananP2', masuk: 0.82, keluar: 0.48, redaman: 0.105 }
+                        ]
+                    },
+                    {
+                        slideId: 'slideHalaman3',
+                        layers: [
+                            { id: 'wrapFrameP3', masuk: 0.18, keluar: 0.14, redaman: 0.20 },
+                            { id: 'blokTipografiP3', masuk: 0.60, keluar: 0.60, redaman: 0.135 },
+                            { id: 'wrapBungaAtasP3', masuk: 0.72, keluar: 0.40, redaman: 0.115 },
+                            { id: 'wrapBungaBawahP3', masuk: 0.84, keluar: 0.48, redaman: 0.105 }
+                        ]
+                    },
+                    {
+                        slideId: 'slideHalaman4',
+                        layers: [
+                            { id: 'wrapFrameP4', masuk: 0.16, keluar: 0.12, redaman: 0.21 },
+                            { id: 'wrapWanitaP4', masuk: 0.46, keluar: 0.36, redaman: 0.15 },
+                            { id: 'wrapPriaP4', masuk: 0.54, keluar: 0.22, redaman: 0.14 },
+                            { id: 'blokTipografiP4', masuk: 0.66, keluar: 0.62, redaman: 0.13 },
+                            { id: 'wrapBungaAtasP4', masuk: 0.78, keluar: 0.42, redaman: 0.11 },
+                            { id: 'wrapBungaBawahP4', masuk: 0.88, keluar: 0.48, redaman: 0.105 }
+                        ]
+                    },
+                    {
+                        slideId: 'slideHalaman5',
+                        layers: [
+                            { id: 'wrapFrameP5', masuk: 0.16, keluar: 0.12, redaman: 0.21 },
+                            { id: 'wrapBungaAtasP5', masuk: 0.44, keluar: 0.26, redaman: 0.15 },
+                            { id: 'blokTipografiP5', masuk: 0.68, keluar: 0.66, redaman: 0.13 },
+                            { id: 'wrapBungaBawahP5', masuk: 0.86, keluar: 0.46, redaman: 0.105 }
+                        ]
+                    },
+                    {
+                        slideId: 'slideHalaman6',
+                        layers: [
+                            { id: 'wrapFrameP6', masuk: 0.16, keluar: 0.12, redaman: 0.21 },
+                            { id: 'blokTipografiP6', masuk: 0.66, keluar: 0.64, redaman: 0.13 },
+                            { id: 'wrapBungaKiriP6', masuk: 0.76, keluar: 0.40, redaman: 0.115 },
+                            { id: 'wrapBungaKananP6', masuk: 0.86, keluar: 0.46, redaman: 0.105 }
+                        ]
+                    },
+                    {
+                        slideId: 'slideHalaman7',
+                        layers: [
+                            { id: 'blokTipografiP7', masuk: 0.46, keluar: 0.54, redaman: 0.14 },
+                            { id: 'wrapPasanganP7', masuk: 0.68, keluar: 0.24, redaman: 0.12 }
+                        ]
+                    }
+                ];
+
+                var daftarItemAktif = [];
+                var tinggiAwal = kontainerScroll.clientHeight || window.innerHeight || 780;
+                var s;
+                var l;
+
+                for (s = 0; s < petaKonfigurasiSlide.length; s++) {
+                    var grup = petaKonfigurasiSlide[s];
+                    var elSlide = document.getElementById(grup.slideId);
+                    if (!elSlide) {
+                        continue;
+                    }
+
+                    for (l = 0; l < grup.layers.length; l++) {
+                        var cfg = grup.layers[l];
+                        var elLayer = document.getElementById(cfg.id);
+                        if (!elLayer) {
+                            continue;
+                        }
+
+                        var posisiAwalY = (grup.slideId === 'slideHalaman1')
+                            ? (cfg.masuk * tinggiAwal * 0.72)
+                            : (cfg.masuk * tinggiAwal);
+
+                        elLayer.style.transform = 'translate3d(0, ' + posisiAwalY.toFixed(1) + 'px, 0)';
+
+                        daftarItemAktif.push({
+                            slideEl: elSlide,
+                            slideId: grup.slideId,
+                            el: elLayer,
+                            masuk: cfg.masuk,
+                            keluar: cfg.keluar,
+                            redaman: cfg.redaman,
+                            ySaatIni: posisiAwalY,
+                            yTerakhirRender: posisiAwalY
+                        });
+                    }
+                }
+
+                var rafBerjalan = false;
+                var waktuFrameSebelumnya = 0;
+
+                function hitungTargetY(item, scrollTop, tinggiViewport) {
+                    if (!sudahMulaiAnimasiAwal && item.slideId === 'slideHalaman1') {
+                        return item.masuk * tinggiViewport * 0.72;
+                    }
+
+                    var slideTop = item.slideEl.offsetTop;
+                    var progress = (slideTop - scrollTop) / tinggiViewport;
+
+                    if (progress > 1.35) {
+                        progress = 1.35;
+                    } else if (progress < -1.35) {
+                        progress = -1.35;
+                    }
+
+                    if (Math.abs(progress) < 0.002) {
+                        return 0;
+                    }
+
+                    if (progress > 0) {
+                        return progress * item.masuk * tinggiViewport;
+                    }
+                    return progress * item.keluar * tinggiViewport;
+                }
+
+                function jalankanFrameParallax(waktuSekarang) {
+                    var selisihMs = waktuFrameSebelumnya > 0 ? (waktuSekarang - waktuFrameSebelumnya) : 16.667;
+                    waktuFrameSebelumnya = waktuSekarang;
+
+                    var faktorDt = selisihMs / 16.667;
+                    if (faktorDt < 0.5) {
+                        faktorDt = 0.5;
+                    } else if (faktorDt > 2.4) {
+                        faktorDt = 2.4;
+                    }
+
+                    var scrollTop = kontainerScroll.scrollTop;
+                    var tinggiViewport = kontainerScroll.clientHeight || window.innerHeight || 780;
+                    var masihAdaGerakan = false;
+                    var i;
+
+                    for (i = 0; i < daftarItemAktif.length; i++) {
+                        var item = daftarItemAktif[i];
+                        var targetY = hitungTargetY(item, scrollTop, tinggiViewport);
+                        var selisihY = targetY - item.ySaatIni;
+
+                        if (Math.abs(selisihY) > 0.18) {
+                            var laju = 1 - Math.pow(1 - item.redaman, faktorDt);
+                            item.ySaatIni = item.ySaatIni + (selisihY * laju);
+                            masihAdaGerakan = true;
+                        } else {
+                            item.ySaatIni = targetY;
+                        }
+
+                        if (Math.abs(item.ySaatIni - item.yTerakhirRender) >= 0.1 || (targetY === 0 && item.yTerakhirRender !== 0 && item.ySaatIni === 0)) {
+                            var nilaiBulat = Math.abs(item.ySaatIni) < 0.12 ? 0 : Number(item.ySaatIni.toFixed(1));
+                            item.el.style.transform = 'translate3d(0, ' + nilaiBulat + 'px, 0)';
+                            item.yTerakhirRender = nilaiBulat;
+                        }
+                    }
+
+                    if (masihAdaGerakan) {
+                        window.requestAnimationFrame(jalankanFrameParallax);
+                    } else {
+                        rafBerjalan = false;
+                        waktuFrameSebelumnya = 0;
+                    }
+                }
+
+                function picuUpdateParallax() {
+                    if (!rafBerjalan) {
+                        rafBerjalan = true;
+                        waktuFrameSebelumnya = 0;
+                        window.requestAnimationFrame(jalankanFrameParallax);
+                    }
+                }
+
+                bangunkanLoopParallax = picuUpdateParallax;
+
+                kontainerScroll.addEventListener('scroll', function () {
+                    picuUpdateParallax();
+                    var hView = kontainerScroll.clientHeight || window.innerHeight || 780;
+                    if (kontainerScroll.scrollTop >= hView * 0.12) {
+                        putarLaguUndangan();
+                    }
+                }, { passive: true });
+                window.addEventListener('resize', picuUpdateParallax, { passive: true });
+            }
+
+            /**
+             * Mesin Audio Latar Undangan Same-Origin (lagu.mp3 GitHub Pages + Web Audio API + GAS Fallback)
+             * Otomatis berputar saat membuka amplop atau menuju Halaman 2 tanpa tombol UI.
+             */
+            var audioCtxLatar = null;
+            var audioBufferLatar = null;
+            var sourceNodeLatar = null;
+            var audioUnlockSelesai = false;
+            var audioSedangDiunduh = false;
+            var musikDimintaPutar = false;
+            var sumberLokalGagal = false;
+
+            function pastikanAudioContext() {
+                if (!audioCtxLatar) {
+                    var KelasAudioCtx = window.AudioContext || window.webkitAudioContext;
+                    if (typeof KelasAudioCtx === 'function') {
+                        try {
+                            audioCtxLatar = new KelasAudioCtx();
+                        } catch (errCtx) {
+                            audioCtxLatar = null;
+                        }
+                    }
+                }
+                return audioCtxLatar;
+            }
+
+            function konversiBase64KeArrayBuffer(base64Str) {
+                var bersih = String(base64Str || '').replace(/[\r\n\s]+/g, '');
+                var binaryStr = window.atob(bersih);
+                var len = binaryStr.length;
+                var bytes = new Uint8Array(len);
+                var i;
+                for (i = 0; i < len; i++) {
+                    bytes[i] = binaryStr.charCodeAt(i);
+                }
+                return bytes.buffer;
+            }
+
+            function siapkanMemoriAudioDariBuffer(arrayBuffer, pakaiSebagaiBlobFallback) {
+                if (!arrayBuffer || arrayBuffer.byteLength < 1024) {
+                    return;
+                }
+
+                var elAudio = document.getElementById('audioLatarUndangan');
+
+                if (pakaiSebagaiBlobFallback && typeof window.Blob === 'function' && typeof window.URL !== 'undefined' && typeof window.URL.createObjectURL === 'function') {
+                    try {
+                        var blobMp3 = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+                        var urlLokal = window.URL.createObjectURL(blobMp3);
+                        STATE_APLIKASI.blobUrlMusik = urlLokal;
+
+                        if (elAudio && (!STATE_APLIKASI.musikSudahBerjalan || elAudio.paused)) {
+                            elAudio.src = urlLokal;
+                            elAudio.volume = 0.85;
+                            elAudio.loop = true;
+                            elAudio.load();
+                        }
+                    } catch (errBlob) {
+                        // Lanjut ke Web Audio API
+                    }
+                }
+
+                var ctx = pastikanAudioContext();
+                if (ctx && typeof ctx.decodeAudioData === 'function') {
+                    try {
+                        var salinanBuffer = arrayBuffer.slice(0);
+                        ctx.decodeAudioData(
+                            salinanBuffer,
+                            function (decoded) {
+                                audioBufferLatar = decoded;
+                                if ((musikDimintaPutar || STATE_APLIKASI.musikMenungguInteraksi) && !STATE_APLIKASI.musikSudahBerjalan) {
+                                    putarLaguUndangan();
+                                }
+                            },
+                            function () {
+                                if ((musikDimintaPutar || STATE_APLIKASI.musikMenungguInteraksi) && !STATE_APLIKASI.musikSudahBerjalan) {
+                                    putarLaguUndangan();
+                                }
+                            }
+                        );
+                    } catch (errDecode) {
+                        if ((musikDimintaPutar || STATE_APLIKASI.musikMenungguInteraksi) && !STATE_APLIKASI.musikSudahBerjalan) {
+                            putarLaguUndangan();
+                        }
+                    }
+                }
+            }
+
+            function unduhAudioViaServerBridge(driveId) {
+                if (typeof google === 'undefined' || !google.script || !google.script.run) {
+                    return;
+                }
+
+                google.script.run
+                    .withSuccessHandler(function (res) {
+                        if (res && res.status === 'success' && res.base64) {
+                            try {
+                                var bufferServer = konversiBase64KeArrayBuffer(res.base64);
+                                siapkanMemoriAudioDariBuffer(bufferServer, true);
+                            } catch (errConv) {
+                                // Gagal konversi base64
+                            }
+                        }
+                    })
+                    .withFailureHandler(function () {
+                        // Gagal memanggil jembatan server
+                    })
+                    .ambilAudioLatarBase64(driveId);
+            }
+
+            function bukaKunciAudioGesture() {
+                var ctx = pastikanAudioContext();
+                if (ctx) {
+                    if (ctx.state === 'suspended' && typeof ctx.resume === 'function') {
+                        try {
+                            ctx.resume();
+                        } catch (errRes) {
+                            // Abaikan
+                        }
+                    }
+
+                    if (!audioUnlockSelesai) {
+                        try {
+                            var bufferKosong = ctx.createBuffer(1, 1, 22050);
+                            var srcKosong = ctx.createBufferSource();
+                            srcKosong.buffer = bufferKosong;
+                            srcKosong.connect(ctx.destination);
+                            if (typeof srcKosong.start === 'function') {
+                                srcKosong.start(0);
+                            }
+                            if (ctx.state === 'running') {
+                                audioUnlockSelesai = true;
+                            }
+                        } catch (errUnlockCtx) {
+                            // Abaikan
+                        }
+                    }
+                }
+
+                if ((musikDimintaPutar || STATE_APLIKASI.musikMenungguInteraksi) && !STATE_APLIKASI.musikSudahBerjalan) {
+                    putarLaguUndangan();
+                }
+            }
+
+            function inisialisasiAudioLatar() {
+                var elAudio = document.getElementById('audioLatarUndangan');
+                if (!elAudio || audioSedangDiunduh) {
+                    return;
+                }
+                audioSedangDiunduh = true;
+
+                elAudio.volume = 0.85;
+                elAudio.loop = true;
+
+                var driveId = ekstrakFileIdGoogleDrive(ASET_MUSIK_LATAR);
+
+                elAudio.addEventListener('error', function () {
+                    sumberLokalGagal = true;
+                    if (STATE_APLIKASI.blobUrlMusik !== '' && elAudio.src !== STATE_APLIKASI.blobUrlMusik) {
+                        elAudio.src = STATE_APLIKASI.blobUrlMusik;
+                        if (musikDimintaPutar || STATE_APLIKASI.musikMenungguInteraksi) {
+                            putarLaguUndangan();
+                        }
+                    } else if (driveId !== '') {
+                        unduhAudioViaServerBridge(driveId);
+                    }
+                });
+
+                // 1. Muat lagu.mp3 lokal (Same-Origin di GitHub Pages / Folder Proyek) ke Web Audio API
+                if (typeof window.fetch === 'function') {
+                    window.fetch(ASET_MUSIK_LOKAL)
+                        .then(function (respon) {
+                            if (!respon.ok) {
+                                throw new Error('HTTP ' + respon.status);
+                            }
+                            return respon.arrayBuffer();
+                        })
+                        .then(function (bufferLokal) {
+                            if (bufferLokal && bufferLokal.byteLength > 1024) {
+                                siapkanMemoriAudioDariBuffer(bufferLokal, false);
+                            } else {
+                                throw new Error('Berkas lagu.mp3 kosong');
+                            }
+                        })
+                        .catch(function () {
+                            sumberLokalGagal = true;
+                            if (driveId !== '') {
+                                unduhAudioViaServerBridge(driveId);
+                            }
+                        });
+                }
+
+                // 2. Buka kunci audio pada sentuhan/ketukan pertama di layar
+                var daftarEventGesture = ['pointerdown', 'pointerup', 'touchstart', 'touchend', 'mousedown', 'click', 'keydown'];
+                var eIdx;
+                for (eIdx = 0; eIdx < daftarEventGesture.length; eIdx++) {
+                    document.addEventListener(daftarEventGesture[eIdx], bukaKunciAudioGesture, { passive: true });
+                }
+
+                var kontainerScroll = document.getElementById('mainScrollStage');
+                var sentuhAwalY = 0;
+
+                if (kontainerScroll) {
+                    kontainerScroll.addEventListener('touchstart', function (e) {
+                        bukaKunciAudioGesture();
+                        if (e.touches && e.touches.length > 0) {
+                            sentuhAwalY = e.touches[0].clientY;
+                        }
+                    }, { passive: true });
+
+                    kontainerScroll.addEventListener('touchmove', function (e) {
+                        if (STATE_APLIKASI.musikSudahBerjalan) {
+                            return;
+                        }
+                        if (e.touches && e.touches.length > 0) {
+                            var selisih = sentuhAwalY - e.touches[0].clientY;
+                            if (selisih > 16) {
+                                putarLaguUndangan();
+                            }
+                        }
+                    }, { passive: true });
+
+                    kontainerScroll.addEventListener('touchend', function (e) {
+                        bukaKunciAudioGesture();
+                        if (STATE_APLIKASI.musikSudahBerjalan) {
+                            return;
+                        }
+                        var sentuhAkhirY = (e.changedTouches && e.changedTouches.length > 0)
+                            ? e.changedTouches[0].clientY
+                            : sentuhAwalY;
+                        var selisihGeser = sentuhAwalY - sentuhAkhirY;
+                        var hView = kontainerScroll.clientHeight || window.innerHeight || 780;
+
+                        if (selisihGeser > 16 || kontainerScroll.scrollTop >= hView * 0.08 || musikDimintaPutar) {
+                            putarLaguUndangan();
+                        }
+                    }, { passive: true });
+                }
+            }
+
+            function putarLaguUndangan() {
+                musikDimintaPutar = true;
+                STATE_APLIKASI.musikMenungguInteraksi = true;
+
+                if (STATE_APLIKASI.musikSudahBerjalan) {
+                    return;
+                }
+
+                var elAudio = document.getElementById('audioLatarUndangan');
+
+                // Jalur 1: Putar langsung melalui elemen HTML5 <audio src="lagu.mp3"> (Same-Origin GitHub Pages / Lokal)
+                if (elAudio && (!sumberLokalGagal || STATE_APLIKASI.blobUrlMusik !== '')) {
+                    try {
+                        if (sumberLokalGagal && STATE_APLIKASI.blobUrlMusik !== '' && elAudio.src !== STATE_APLIKASI.blobUrlMusik) {
+                            elAudio.src = STATE_APLIKASI.blobUrlMusik;
+                        }
+                        elAudio.volume = 0.85;
+                        elAudio.loop = true;
+
+                        var janjiPutar = elAudio.play();
+                        if (janjiPutar && typeof janjiPutar.then === 'function') {
+                            janjiPutar
+                                .then(function () {
+                                    if (sourceNodeLatar) {
+                                        try {
+                                            sourceNodeLatar.stop(0);
+                                        } catch (errStop) {
+                                            // Abaikan
+                                        }
+                                        sourceNodeLatar = null;
+                                    }
+                                    STATE_APLIKASI.musikSudahBerjalan = true;
+                                    STATE_APLIKASI.musikMenungguInteraksi = false;
+                                })
+                                .catch(function () {
+                                    STATE_APLIKASI.musikMenungguInteraksi = true;
+                                    putarMelaluiWebAudioFallback();
+                                });
+                            return;
+                        } else {
+                            STATE_APLIKASI.musikSudahBerjalan = true;
+                            STATE_APLIKASI.musikMenungguInteraksi = false;
+                            return;
+                        }
+                    } catch (errPlay) {
+                        STATE_APLIKASI.musikMenungguInteraksi = true;
+                    }
+                }
+
+                putarMelaluiWebAudioFallback();
+            }
+
+            function putarMelaluiWebAudioFallback() {
+                if (STATE_APLIKASI.musikSudahBerjalan) {
+                    return;
+                }
+
+                var elAudio = document.getElementById('audioLatarUndangan');
+                var ctx = pastikanAudioContext();
+                if (!ctx) {
+                    return;
+                }
+
+                if (ctx.state === 'suspended' && typeof ctx.resume === 'function') {
+                    try {
+                        ctx.resume().then(function () {
+                            if (!STATE_APLIKASI.musikSudahBerjalan && audioBufferLatar && ctx.state === 'running') {
+                                putarMelaluiWebAudioFallback();
+                            }
+                        }).catch(function () {
+                            // Menunggu sentuhan berikutnya
+                        });
+                    } catch (errResume) {
+                        // Abaikan
+                    }
+                }
+
+                if (audioBufferLatar && ctx.state === 'running' && !sourceNodeLatar) {
+                    try {
+                        if (elAudio && !elAudio.paused) {
+                            elAudio.pause();
+                        }
+                        var gainNode = ctx.createGain();
+                        gainNode.gain.value = 0.85;
+                        gainNode.connect(ctx.destination);
+
+                        sourceNodeLatar = ctx.createBufferSource();
+                        sourceNodeLatar.buffer = audioBufferLatar;
+                        sourceNodeLatar.loop = true;
+                        sourceNodeLatar.connect(gainNode);
+                        sourceNodeLatar.start(0);
+
+                        STATE_APLIKASI.musikSudahBerjalan = true;
+                        STATE_APLIKASI.musikMenungguInteraksi = false;
+                    } catch (errWebAudio) {
+                        sourceNodeLatar = null;
+                    }
+                }
+            }
+
+            function muatInfoTamuRingan() {
+                try {
+                    var params = new URLSearchParams(window.location.search);
+                    var tamuUrl = params.get('to') || params.get('guest') || params.get('tamu') || '';
+                    if (tamuUrl && tamuUrl.trim() !== '') {
+                        STATE_APLIKASI.namaTamu = String(tamuUrl).trim();
+                    }
+                } catch (errParam) {
+                    // Aman di dalam iframe sandbox
+                }
+
+                if (typeof google !== 'undefined' && google.script && google.script.run) {
+                    var argTamu = String(STATE_APLIKASI.namaTamu || 'Tamu Undangan');
+
+                    google.script.run
+                        .withSuccessHandler(function (res) {
+                            if (res && res.status === 'success' && res.guest) {
+                                STATE_APLIKASI.idTamu = String(res.guest.idTamu || '');
+                                STATE_APLIKASI.namaTamu = String(res.guest.namaTamu || STATE_APLIKASI.namaTamu);
+                            }
+                        })
+                        .withFailureHandler(function () {
+                            // Mode mandiri tetap berjalan
+                        })
+                        .getGuestWelcomeInfo(argTamu);
+                }
+            }
+
+            function gulirKeSlide(idSlideTujuan) {
+                var target = document.getElementById(idSlideTujuan);
+                if (target && typeof target.scrollIntoView === 'function') {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            function tanganiSentuhAmplop() {
+                var wrapAmplop = document.getElementById('wrapAmplop');
+                if (wrapAmplop) {
+                    wrapAmplop.classList.remove('is-envelope-tapped');
+                    void wrapAmplop.offsetWidth;
+                    wrapAmplop.classList.add('is-envelope-tapped');
+                    setTimeout(function () {
+                        wrapAmplop.classList.remove('is-envelope-tapped');
+                    }, 800);
+                }
+
+                putarLaguUndangan();
+
+                var sapaan = String(STATE_APLIKASI.namaTamu || 'Tamu Kehormatan');
+                tampilkanToastUndangan(
+                    'Selamat Datang, ' + sapaan,
+                    'Membuka undangan pernikahan Hj. Ara & H. Iyad'
+                );
+
+                setTimeout(function () {
+                    gulirKeSlide('slideHalaman2');
+                }, 620);
+
+                if (!STATE_APLIKASI.sudahDibuka) {
+                    STATE_APLIKASI.sudahDibuka = true;
+
+                    var idPrimitif = String(STATE_APLIKASI.idTamu || '');
+                    var namaPrimitif = String(STATE_APLIKASI.namaTamu || 'Tamu Undangan');
+
+                    if (typeof google !== 'undefined' && google.script && google.script.run) {
+                        google.script.run
+                            .withSuccessHandler(function (hasil) {
+                                if (hasil && hasil.status === 'success' && hasil.guestId) {
+                                    STATE_APLIKASI.idTamu = String(hasil.guestId);
+                                }
+                            })
+                            .withFailureHandler(function () {
+                                // Tetap mulus di layar tamu
+                            })
+                            .recordOpenInvitation(idPrimitif, namaPrimitif);
+                    }
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                inisialisasiPemantauScrollAnimasi();
+                inisialisasiAudioLatar();
+                pasangSeluruhAsetUndangan();
+                muatInfoTamuRingan();
+
+                var btnAmplop = document.getElementById('amplopInteraktif');
+                if (btnAmplop) {
+                    btnAmplop.addEventListener('click', tanganiSentuhAmplop);
+                }
+
+                var btnScrollUji = document.getElementById('btnScrollUji');
+                if (btnScrollUji) {
+                    btnScrollUji.addEventListener('click', function () {
+                        putarLaguUndangan();
+                        gulirKeSlide('slideHalaman2');
+                    });
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
