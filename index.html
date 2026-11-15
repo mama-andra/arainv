@@ -125,6 +125,12 @@
             display: none;
         }
 
+        .mobile-scroll-container.is-locked-cover {
+            overflow-y: hidden !important;
+            touch-action: none !important;
+            overscroll-behavior-y: none;
+        }
+
         .invitation-slide {
             position: relative;
             width: 100%;
@@ -1434,7 +1440,7 @@
         </div>
 
         <!-- KONTAINER SCROLL / SLIDE UNDANGAN TAMU -->
-        <div id="mainScrollStage" class="mobile-scroll-container no-select">
+        <div id="mainScrollStage" class="mobile-scroll-container is-locked-cover no-select">
 
             <!-- ==============================================================
                  SLIDE 1: HALAMAN COVER UNDANGAN ("You're Invited to Our Wedding")
@@ -1488,9 +1494,9 @@
                 <button id="amplopInteraktif" type="button" class="envelope-touch-zone"
                     aria-label="Sentuh amplop untuk membuka undangan"></button>
 
-                <!-- INDIKATOR SCROLL KE HALAMAN 2 -->
+                <!-- INDIKATOR BUKA AMPLOP KE HALAMAN 2 -->
                 <button id="btnScrollUji" type="button" class="scroll-hint-pill">
-                    <span>Sentuh Amplop / Geser ke Bawah</span>
+                    <span>Ketuk Amplop untuk Membuka Undangan</span>
                     <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
@@ -2902,6 +2908,8 @@
 
                 var kontainerScroll = document.getElementById('mainScrollStage');
                 var sentuhAwalY = 0;
+                var pointerAwalY = 0;
+                var sedangDragPointer = false;
 
                 if (kontainerScroll) {
                     kontainerScroll.addEventListener('touchstart', function (e) {
@@ -2911,31 +2919,41 @@
                         }
                     }, { passive: true });
 
-                    kontainerScroll.addEventListener('touchmove', function (e) {
-                        if (STATE_APLIKASI.musikSudahBerjalan) {
-                            return;
-                        }
-                        if (e.touches && e.touches.length > 0) {
-                            var selisih = sentuhAwalY - e.touches[0].clientY;
-                            if (selisih > 16) {
-                                putarLaguUndangan();
-                            }
-                        }
-                    }, { passive: true });
-
                     kontainerScroll.addEventListener('touchend', function (e) {
                         bukaKunciAudioGesture();
-                        if (STATE_APLIKASI.musikSudahBerjalan) {
-                            return;
-                        }
                         var sentuhAkhirY = (e.changedTouches && e.changedTouches.length > 0)
                             ? e.changedTouches[0].clientY
                             : sentuhAwalY;
                         var selisihGeser = sentuhAwalY - sentuhAkhirY;
-                        var hView = kontainerScroll.clientHeight || window.innerHeight || 780;
 
+                        if (!STATE_APLIKASI.sudahDibuka && Math.abs(selisihGeser) > 16) {
+                            tanganiSentuhAmplop();
+                            return;
+                        }
+
+                        var hView = kontainerScroll.clientHeight || window.innerHeight || 780;
                         if (selisihGeser > 16 || kontainerScroll.scrollTop >= hView * 0.08 || musikDimintaPutar) {
                             putarLaguUndangan();
+                        }
+                    }, { passive: true });
+
+                    kontainerScroll.addEventListener('pointerdown', function (e) {
+                        bukaKunciAudioGesture();
+                        pointerAwalY = e.clientY || 0;
+                        sedangDragPointer = true;
+                    }, { passive: true });
+
+                    kontainerScroll.addEventListener('pointerup', function (e) {
+                        bukaKunciAudioGesture();
+                        if (!sedangDragPointer) {
+                            return;
+                        }
+                        sedangDragPointer = false;
+                        var pointerAkhirY = e.clientY || pointerAwalY;
+                        var selisihPointer = pointerAwalY - pointerAkhirY;
+
+                        if (!STATE_APLIKASI.sudahDibuka && Math.abs(selisihPointer) > 18) {
+                            tanganiSentuhAmplop();
                         }
                     }, { passive: true });
                 }
@@ -3076,7 +3094,22 @@
                 }
             }
 
+            var waktuBukaAmplopTerakhir = 0;
+
             function tanganiSentuhAmplop() {
+                var waktuSekarang = new Date().getTime();
+                if (waktuSekarang - waktuBukaAmplopTerakhir < 750) {
+                    return;
+                }
+                waktuBukaAmplopTerakhir = waktuSekarang;
+
+                putarLaguUndangan();
+
+                var kontainerScroll = document.getElementById('mainScrollStage');
+                if (kontainerScroll) {
+                    kontainerScroll.classList.remove('is-locked-cover');
+                }
+
                 var wrapAmplop = document.getElementById('wrapAmplop');
                 if (wrapAmplop) {
                     wrapAmplop.classList.remove('is-envelope-tapped');
@@ -3087,8 +3120,6 @@
                     }, 800);
                 }
 
-                putarLaguUndangan();
-
                 var sapaan = String(STATE_APLIKASI.namaTamu || 'Tamu Kehormatan');
                 tampilkanToastUndangan(
                     'Selamat Datang, ' + sapaan,
@@ -3097,7 +3128,7 @@
 
                 setTimeout(function () {
                     gulirKeSlide('slideHalaman2');
-                }, 620);
+                }, 520);
 
                 if (!STATE_APLIKASI.sudahDibuka) {
                     STATE_APLIKASI.sudahDibuka = true;
@@ -3133,10 +3164,7 @@
 
                 var btnScrollUji = document.getElementById('btnScrollUji');
                 if (btnScrollUji) {
-                    btnScrollUji.addEventListener('click', function () {
-                        putarLaguUndangan();
-                        gulirKeSlide('slideHalaman2');
-                    });
+                    btnScrollUji.addEventListener('click', tanganiSentuhAmplop);
                 }
             });
         })();
